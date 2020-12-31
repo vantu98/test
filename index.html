@@ -11,15 +11,193 @@
 </head>
 
 <body>
-    <h1 class="font-thin text-5xl text-center">Hello World!</h1>
+    <div id="root" x-data='transitionAlpine()'>
+        <!-- HEADER -->
+        <header class="sticky top-0 w-full">
+            <!-- Top notofication -->
+            <div class="w-full h-full bg-red-100 relative flex items-center justify-center py-1">
+                <svg aria-hidden="true" width="28px" height="28px" fill="black" viewBox="0 0 54 25" stroke="black"
+                    stroke-width="0.5" transform="rotate(0)" class="">
+                    <style>
+                        .smilehand_svg__st0 {
+                            fill: #fff
+                        }
+                    </style>
+                    <path class="smilehand_svg__st0"
+                        d="M12.59 1.18c-6.28 0-11.4 5.08-11.4 11.32s5.11 11.32 11.4 11.32c6.28 0 11.4-5.08 11.4-11.32-.01-6.24-5.12-11.32-11.4-11.32z">
+                    </path>
+                    <path
+                        d="M12.59 25C5.65 25 0 19.39 0 12.5S5.65 0 12.59 0s12.59 5.61 12.59 12.5C25.17 19.39 19.53 25 12.59 25zm0-23.82c-6.28 0-11.4 5.08-11.4 11.32s5.11 11.32 11.4 11.32c6.28 0 11.4-5.08 11.4-11.32-.01-6.24-5.12-11.32-11.4-11.32z">
+                    </path>
+                    <path
+                        d="M15.52 6.7c.63 0 1.14.88 1.14 1.96s-.51 1.95-1.14 1.95c-.63 0-1.14-.87-1.14-1.95.01-1.07.52-1.96 1.14-1.96zm-6.06 0c.63 0 1.14.88 1.14 1.96s-.51 1.95-1.14 1.95c-.63 0-1.14-.87-1.14-1.95 0-1.07.51-1.96 1.14-1.96zm3.15 11.59c-2.89 0-5.29-1.6-6.55-3.97 1.72 1.56 4 2.5 6.55 2.5 2.57 0 4.81-.9 6.5-2.39-1.24 2.29-3.57 3.86-6.5 3.86zM53.75 13.37c-.05-.4-.24-.72-.56-.96-.47-.35-1.24-.31-2.3.11l-4.95 1.97 5.27-4.16c.65-.52 1.08-.9 1.26-1.14.35-.47.52-.9.48-1.29-.03-.39-.26-.74-.68-1.05-.72-.53-1.64-.37-2.77.48l-5.53 4.18 4.56-6.07c.5-.66.75-1.24.76-1.75.01-.51-.23-.94-.7-1.29-.47-.35-.96-.42-1.48-.23-.52.2-1.06.67-1.62 1.41l-4.41 6.18 1.94-5.92c.58-1.74.53-2.85-.15-3.35-.39-.29-.76-.41-1.11-.37-.35.04-.67.27-.97.66-.3.41-.6.93-.87 1.58l-2.97 7.18c-.03.07-.07.12-.13.17-.29.24-.67.61-1.14 1.11-.15-.32-.37-.72-.68-1.19a.483.483 0 01-.07-.29c.06-.77 0-1.44-.2-2.01-.21-.61-.57-1.1-1.08-1.48-.5-.37-1.33-.52-2.48-.45l-.41.01.8 4.62c0 .03.01.05.01.08l.01 4.8c0 .03 0 .06.01.09.26 1.43.55 2.63.86 3.62.05.14.02.29-.07.41l-1.03 1.36c-.12.16-.13.38-.02.54.71 1.11 1.51 2 2.41 2.66.92.69 1.96 1.16 3.11 1.44.18.04.38-.03.49-.18l.76-1.01c.07-.09.17-.15.28-.18l1.84-.39c.04-.01.08-.02.11-.04 1.52-.72 3.1-1.92 4.75-3.59a.55.55 0 00.07-.09l.9-1.45c.05-.08.13-.15.21-.18l5.47-2.34c.84-.36 1.41-.73 1.69-1.11.27-.34.38-.7.33-1.1z">
+                    </path>
+                    <path class="smilehand_svg__st0"
+                        d="M52.83 14.04c-.19.25-.64.52-1.37.82l-5.69 2.39c-.09.04-.17.1-.22.19l-1.02 1.65a.7.7 0 01-.08.1c-1.54 1.51-3.05 2.63-4.52 3.36-.04.02-.07.03-.11.04l-2 .47c-.11.03-.2.09-.27.17l-.53.7c-.12.16-.33.23-.52.17-.84-.27-1.64-.68-2.38-1.23-.62-.46-1.22-1.08-1.8-1.87a.496.496 0 010-.57l.93-1.24c.09-.11.11-.27.07-.41-.45-1.63-.76-3.03-.94-4.19 0-.03-.01-.05-.01-.08v-4.38c0-.03 0-.05-.01-.08l-.69-3.9c.66-.04 1.17.07 1.53.34.41.3.69.72.84 1.24.14.48.16 1.07.07 1.75-.01.11.01.23.08.32.39.55.74 1.14 1.05 1.78l.74.05c.5-.53 1.01-1 1.53-1.4a.45.45 0 00.14-.19L40.48 3c.29-.73.55-1.23.76-1.51.19-.25.38-.41.57-.46.19-.05.37-.01.55.12.36.27.36.95.01 2.04l-2.13 6.53c-.06.19 0 .4.17.52l.83.61 4.53-6.37.3-.41c.42-.56.8-.93 1.15-1.1.34-.17.65-.16.91.03.27.2.4.45.39.74-.01.29-.16.63-.45 1.02l-.6.8-4.78 6.36.85.91 5.97-4.65c1.06-.83 1.82-1.08 2.28-.74.21.17.32.36.33.57.01.21-.09.45-.29.72-.14.18-.48.48-1.04.91l-6.34 4.91.6 1.13 6.14-2.41c.78-.31 1.3-.38 1.56-.19.18.13.28.28.29.43 0 .16-.06.34-.21.53z">
+                    </path>
+                    <path
+                        d="M36.64 24.37c-.07 0-.15-.01-.22-.03a8.54 8.54 0 01-2.45-1.27c-.63-.47-1.26-1.12-1.85-1.92a.735.735 0 010-.87l.93-1.24c.04-.05.05-.13.03-.19-.45-1.63-.76-3.04-.95-4.21-.01-.04-.01-.08-.01-.12v-4.38l-.75-4.22.28-.02c.71-.04 1.28.09 1.7.39.46.34.77.8.93 1.38.15.51.17 1.12.08 1.85-.01.05 0 .1.03.14.37.52.71 1.09 1 1.69l.48.03c.49-.51.99-.96 1.48-1.34.03-.02.05-.05.06-.08l2.83-7.06c.3-.76.56-1.27.79-1.57.23-.3.45-.48.7-.55.27-.06.53-.01.77.17.47.35.5 1.09.1 2.32L40.47 9.8c-.03.09 0 .19.08.24l.62.46 4.69-6.57c.45-.6.85-.98 1.23-1.17.54-.27.94-.12 1.17.06.34.25.51.57.49.95-.01.34-.18.72-.5 1.16L43 11.91l.55.59 5.79-4.51c1.17-.92 2.02-1.16 2.58-.74.28.21.43.46.45.75.01.27-.1.56-.34.88-.15.2-.5.5-1.09.96l-6.18 4.78.39.75 5.93-2.33c.89-.36 1.46-.41 1.8-.15.24.18.37.38.39.61.03.21-.06.45-.24.7-.22.29-.69.57-1.48.9l-5.69 2.39c-.04.02-.08.05-.1.09l-1.02 1.65c-.03.05-.07.1-.11.14-1.56 1.52-3.1 2.67-4.59 3.4-.05.03-.11.05-.17.06l-2 .47a.2.2 0 00-.12.08l-.53.7a.72.72 0 01-.58.29zM31.98 6.39l.64 3.62c.01.04.01.08.01.13v4.38c.18 1.19.5 2.59.94 4.2.06.22.01.45-.12.62l-.93 1.24c-.06.08-.06.19 0 .27.57.77 1.15 1.38 1.75 1.82.71.53 1.49.93 2.3 1.19.08.03.19 0 .25-.08l.53-.7c.1-.13.25-.23.41-.27l2-.47c1.5-.73 3-1.85 4.52-3.33.01-.01.03-.03.04-.05l1.02-1.66c.08-.13.2-.23.33-.28l5.69-2.39c.86-.35 1.16-.6 1.27-.74.1-.14.16-.26.15-.34-.01-.11-.11-.2-.19-.26s-.37-.16-1.32.22L44.92 16l-.8-1.52 6.51-5.04c.54-.42.88-.71 1-.86.16-.22.25-.41.24-.56-.01-.13-.09-.25-.24-.37-.35-.26-1.04 0-1.98.74l-6.15 4.79-1.15-1.23 5.51-7.33c.26-.35.4-.64.4-.88.01-.21-.08-.37-.29-.53-.12-.09-.31-.18-.65-.01-.31.16-.67.5-1.06 1.03l-.3.41-4.67 6.57-1.03-.77c-.26-.18-.36-.5-.26-.8l2.13-6.53c.42-1.28.23-1.66.08-1.77-.15-.11-.26-.1-.33-.08-.13.04-.28.16-.43.37-.21.27-.45.76-.74 1.46l-2.83 7.06c-.04.11-.12.22-.22.29-.5.38-1 .84-1.5 1.37l-.08.09-1-.07-.06-.13c-.3-.62-.64-1.21-1.02-1.75a.675.675 0 01-.12-.5c.08-.65.06-1.2-.07-1.65-.13-.47-.38-.84-.74-1.11-.27-.19-.63-.29-1.09-.3z">
+                    </path>
+                </svg>
+                <span class="inline-block text-black font-medium ml-2">
+                    <a href="#" class="hover:text-indigo-700 cursor-pointer text-xs lg:text-sm xl:text-base underline">
+                        It’s the last week to shop our holiday exclusive sets!
+                    </a>
+                </span>
+            </div>
+            <!-- End Top notofication -->
 
-    <div x-data="{ open: false }">
-        <button @click="open = true">Open Dropdown</button>
+            <!-- Main nav -->
+            <div class="NavBarFrame relative flex items-center h-12">
+                <div
+                    class="NavBarContainer w-full h-full mx-auto flex place-content-center justify-between lg:w-11/12 xl:w-2/3 items-center">
+                    <!-- Icon list -->
+                    <ul class="NavIconList flex items-center content-center">
+                        <li class="flex flex-col text-center justify-center px-1 hover:text-indigo-700 hover:cursor-pointer"
+                            @click="sidebarOpen">
+                            <svg aria-hidden="false" width="20px" height="16px" viewBox="0 0 18 16"
+                                transform="rotate(0)" class="fill-current">
+                                <path
+                                    d="M.8 7.2h16.5c.4 0 .8.3.8.8 0 .4-.3.8-.8.8H.8C.4 8.8 0 8.5 0 8s.3-.8.8-.8zm0-6h16.5c.4 0 .7.3.7.8 0 .4-.3.8-.8.8H.8C.3 2.7 0 2.4 0 2c0-.5.3-.8.8-.8zm0 12h16.5c.4 0 .8.3.8.8 0 .4-.3.8-.8.8H.8c-.4 0-.8-.3-.8-.8s.3-.8.8-.8z">
+                                </path>
+                            </svg>
+                        </li>
+                        <li class="px-1"></li>
+                        <li
+                            class="flex flex-col text-center justify-center px-1 hover:text-indigo-700 hover:cursor-pointer">
+                            <svg aria-hidden="false" width="16px" height="16px" viewBox="0 0 17 17"
+                                transform="rotate(0)" class="fill-current">
+                                <path
+                                    d="M16.8 15.7L12 10.9c.9-1.2 1.5-2.6 1.5-4.2 0-3.7-3-6.7-6.7-6.7C3 0 0 3 0 6.7s3 6.7 6.7 6.7c1.6 0 3.1-.6 4.2-1.5l4.8 4.8c.1.1.3.2.5.2s.4-.1.5-.2c.4-.2.4-.7.1-1zM6.7 12c-2.9 0-5.2-2.3-5.2-5.2s2.3-5.2 5.2-5.2S12 3.8 12 6.7 9.6 12 6.7 12z">
+                                </path>
+                            </svg>
+                        </li>
+                    </ul>
 
-        <ul x-show="open" @click.away="open = false">
-            Dropdown Body
-        </ul>
+                    <!-- Logo -->
+                    <div class="">
+                        <a href="#" aria-label="Home" class="block">
+                            <svg aria-hidden="true" width="96px" height="32px" viewBox="0 0 80 24" transform="rotate(0)"
+                                class="Icon-sc-1ny8wc9-0 jrHPSb">
+                                <path
+                                    d="M15.5 8.6C14.9 5.9 13.2 4 10 4h-.1-.1C6.3 4 3.6 5.8 2.2 8.6 1.4 10 1 11.7 1 13.5c0 3.5 1.9 5.7 4.4 6.3.5.1 1 .2 1.5.2.6 0 1.1-.1 1.6-.2 1-.3 1.8-.8 2.5-1.5v1.5c0 .1.1.1.1.1h2.2l.1-.1 1.5-7.6c0-.1-.1-.2-.2-.2H9.3c-.1 0-.1.1-.2.1l-.4 2v.1c0 .1.1.1.1.1h2.7c-.6 1.6-1.9 3-4.1 3s-3.5-1.6-3.5-4.2c0-1.7.6-3.4 1.5-4.5s2.3-1.9 3.9-1.9c1.5 0 2.4.7 3 1.9.1.3.3.6.4 1 0 .1.1.1.1.1l2.6-.7.1-.1v-.3zm5.9-4.4c0-.1-.1-.2-.2-.2h-2.5c-.1 0-.1.1-.2.1l-3 15.5v.1c0 .1.1.1.1.1h2.6l.1-.1zm7.4 12.2c-.6.8-1.4 1.2-2.5 1.2-1.3 0-2.2-1.1-2.2-2.8 0-1.2.3-2.1.8-2.9.6-.8 1.4-1.2 2.5-1.2 1.3 0 2.2 1.1 2.2 2.8 0 1.3-.3 2.2-.8 2.9zm.3-7.8c-.5-.1-.9-.2-1.5-.2s-1.2.1-1.8.2c-1 .2-1.9.7-2.8 1.6-1.3 1.3-1.9 2.9-1.9 5.1s1.3 4 3.4 4.6c.5 0 1 .1 1.5.1.6 0 1.2-.1 1.8-.2 1-.2 1.9-.7 2.8-1.6 1.3-1.3 1.9-2.9 1.9-5.1.1-2.2-1.2-4-3.4-4.5zm12.7 1.6c-.4-.7-1.2-1.3-2.2-1.6-.4-.1-.8-.2-1.2-.2-.5 0-1 .1-1.4.2-1.6.4-2.5 1.6-2.5 3.3 0 1.5 1 2.4 2.3 3s1.9 1 1.9 1.7c0 .8-.7 1.2-1.4 1.2-1.1 0-1.8-.6-2.1-1.8 0-.1-.1-.1-.2-.1h-.1l-2.1.9c-.1 0-.1.1-.1.1.3 1.1 1.2 2.5 2.9 3 .4.1.8.2 1.3.2.6 0 1.1-.1 1.6-.2 1.7-.4 2.8-1.6 2.8-3.7 0-1.6-1.2-2.3-2.3-2.9-.8-.4-1.9-.7-1.9-1.5 0-.6.5-1 1.1-1s1.2.3 1.6.8l.1.1h.1l1.7-1.2c.1-.2.1-.2.1-.3zm7-1.6c-.4-.1-.8-.2-1.2-.2-.5 0-1 .1-1.4.2-1.6.4-2.5 1.6-2.5 3.3 0 1.5 1 2.4 2.3 3s1.9 1 1.9 1.7c0 .8-.7 1.2-1.4 1.2-1.1 0-1.8-.7-2.1-1.8 0-.1-.1-.1-.1-.1h-.1l-2.2.7c-.1 0-.1.1-.1.1.3 1.1 1.2 2.5 2.9 3 .4.1.8.2 1.3.2.6 0 1.1-.1 1.6-.2 1.7-.4 2.8-1.6 2.8-3.7 0-1.6-1.2-2.3-2.3-2.9-.8-.4-1.9-.7-1.9-1.5 0-.6.5-1 1.1-1s1.2.3 1.6.8l.1.1h.1l1.8-1.3.1-.1V10c-.5-.6-1.3-1.2-2.3-1.4zm7.2 0h-2.5c-.1 0-.1 0-.2.1l-2.1 10.9v.1c0 .1.1.1.1.1h2.6l.1-.1 2.1-11c.1-.1 0-.1-.1-.1zm3.9 4.3c.5-1.2 1.6-2.1 3-2.1s2.1.7 2.1 2.1zm4.8-4.3c-.4-.1-.9-.2-1.4-.2-.6 0-1.1.1-1.6.2-3.1.7-5.1 3.5-5.1 6.5 0 2.6 1.4 4.3 3.4 4.8.4.1.9.2 1.4.2.6 0 1.2-.1 1.7-.2 1.6-.4 2.7-1.3 3.8-2.8V17c0-.1 0-.1-.1-.1l-1.9-1h-.1c-.1 0-.1 0-.1.1-.8 1.2-1.7 1.8-3 1.8-1.5 0-2.3-1-2.3-2.2v-.4h8.1l.1-.1c.1-.3.3-1.1.3-2.1-.1-2.2-1.2-3.9-3.2-4.4zm12.1 2.5h.2s.1 0 .1-.1l.8-2.2v-.1c0-.1 0-.1-.1-.1s-.1 0-.2-.1c-.3-.1-.6-.2-1.2-.2-.4 0-.8.1-1.2.2-.8.3-1.6.8-2.3 1.7l.3-1.5c0-.1-.1-.2-.2-.2h-2.5c-.1 0-.1.1-.2.1l-2.1 10.9v.1c0 .1.1.1.1.1h2.6l.1-.1.8-3.9c.7-3.5 2.6-5 4-5 .4.2.7.2 1 .4zM55.3 4.2c-.9 0-1.6.7-1.6 1.6s.7 1.6 1.6 1.6 1.6-.7 1.6-1.6-.7-1.6-1.6-1.6zm21.6 12.6c-.9 0-1.6.7-1.6 1.6 0 .6.3 1.1.8 1.4.2.1.5.2.8.2s.6-.1.8-.2c.5-.3.8-.8.8-1.4 0-.9-.7-1.6-1.6-1.6z"
+                                    fill="#1a1919"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Icon list -->
+                    <ul class="NavIconList flex items-center content-center">
+                        <li class="flex flex-col text-center justify-center px-1 hover:text-indigo-700 text-center">
+                            <div class="cursor-pointer">
+                                <svg aria-hidden="true" width="16px" height="20px" viewBox="0 0 17 20"
+                                    class="fill-current" transform="rotate(0)">
+                                    <g clip-path="url(#a)">
+                                        <path clip-rule="evenodd"
+                                            d="M8.2.05C5.486.05 3.25 2.286 3.25 5S5.486 9.95 8.2 9.95 13.15 7.714 13.15 5 10.914.05 8.2.05zM4.75 5c0-1.886 1.564-3.45 3.45-3.45 1.886 0 3.45 1.564 3.45 3.45 0 1.886-1.564 3.45-3.45 3.45-1.886 0-3.45-1.564-3.45-3.45zm-1.22 9.43a6.743 6.743 0 0 1 4.77-1.98c1.799 0 3.508.72 4.77 1.98a6.743 6.743 0 0 1 1.98 4.77.75.75 0 0 0 1.5 0c0-2.201-.88-4.291-2.42-5.83a8.242 8.242 0 0 0-5.83-2.42c-2.201 0-4.291.88-5.83 2.42A8.242 8.242 0 0 0 .05 19.2a.75.75 0 0 0 1.5 0c0-1.799.72-3.509 1.98-4.77z"
+                                            fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="px-1"></li>
+                        <li class="flex flex-col text-center justify-center px-1 hover:text-indigo-700">
+                            <div class="relative flex items-center hover:text-indigo-700 cursor-pointer">
+                                <div id="cartQuantity" class="absolute w-full text-xs"
+                                    style="top: 50%; transform: translate(0,-50%);">0</div>
+                                <svg aria-hidden="true" width="26px" height="26px" viewBox="0 0 29 21"
+                                    transform="rotate(0)" class="">
+                                    <path clip-rule="evenodd"
+                                        d="M3.275 1.05c.116-.57.62-1 1.225-1h5c.605 0 1.11.43 1.225 1H26.5c.494 0 .925.24 1.218.532.293.293.532.724.532 1.218v16.574l-.015.073c-.163.815-.843 1.503-1.835 1.503H2c-.494 0-.925-.24-1.218-.532C.49 20.125.25 19.694.25 19.2V2.8c0-.494.24-.925.532-1.218S1.506 1.05 2 1.05zm-.025 1.5H2c-.006 0-.075.01-.157.093s-.093.15-.093.157v1.25h1.5zm-1.5 3V19.2c0 .006.01.075.093.157.082.082.15.093.157.093h24.4c.125 0 .2-.039.246-.08a.362.362 0 00.104-.162V5.55H4.5zm25-1.5V2.8c0-.006-.01-.075-.093-.157-.082-.082-.15-.093-.157-.093H10.75v1.5zm-17.5-1.5v-1h-4.5v2.5h4.5z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End Main nav -->
+
+            <!-- Bottom nav -->
+            <div class="transition delay-100 transition-transform duration-400 ease-in-out w-full border-b">
+                <ul id="menu"
+                    class="overflow-x-visible text-center font-semibold w-full flex justify-center relative font-primary-font-sans">
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">Shop All</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">Skincare</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">Makeup</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">Body</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">Fragrance</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">
+                            Shop our Sets
+                        </a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">GlossiWEAR</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">Gift Shop</a>
+                    </li>
+                    <li class="p-2.5 inline-block text-sm">
+                        <a href="#" title="Shop All" target="_self">
+                            Digital Gift Card
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Bottom nav -->
+        </header>
+        <!-- END HEADER -->
+
+        <!-- SIDEBAR -->
+        <div class="relative" x-show="!isSidebarOpen">
+            <div class="fixed inset-0 overflow-hidden">
+                <div class="absolute inset-0 overflow-hidden">
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-gray-500 bg-opacity-25 transition-opacity" aria-hidden="true"></div>
+                    <!-- Content -->
+                    <section class="absolute inset-y-0 left-0 max-w-full flex" aria-labelledby="slide-over-heading">
+                        <div class="relative w-screen max-w-md">
+                            <!-- Sidebar -->
+                            <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-visible" x-show="open"
+                                x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+                                x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+                                x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+                                x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+                                <div class="px-4 sm:px-6">
+                                    <h2 id="slide-over-heading" class="text-lg font-medium text-gray-900">
+                                        Panel title
+                                    </h2>
+                                </div>
+                                <div class="mt-6 relative flex-1 px-4 sm:px-6">
+                                    <!-- Replace with your content -->
+                                    <div class="absolute inset-0 px-4 sm:px-6">
+                                        <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true">
+                                        </div>
+                                    </div>
+                                    <!-- /End replace -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
     </div>
+
+    <script src="./assets/js/transitionAlpine.js"></script>
 </body>
 
 </html>
