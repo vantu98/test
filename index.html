@@ -4,12 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Glossier | Skincare & Beauty Products Inspired by Real Life</title>
     <link rel="stylesheet" href="assets/css/app.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 </head>
 
 <body>
     <h1 class="font-thin text-5xl text-center">Hello World!</h1>
+
+    <div x-data="{ open: false }">
+        <button @click="open = true">Open Dropdown</button>
+
+        <ul x-show="open" @click.away="open = false">
+            Dropdown Body
+        </ul>
+    </div>
 </body>
 
 </html>
