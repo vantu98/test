@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "postcss": "^8.2.2",
+    "tailwindcss": "^2.0.2"
+  },
+  "name": "Glossier",
+  "version": "1.0.0",
+  "description": "Glossier pages",
+  "main": "index.html",
+  "repository": "https://github.com/vantu98/test.git",
+  "author": "tunv <nguyenvantu191298@gmail.com>",
+  "license": "MIT"
+}
