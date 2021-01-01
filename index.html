@@ -53,14 +53,15 @@
                     class="NavBarContainer w-full h-full mx-auto flex place-content-center justify-between lg:w-11/12 xl:w-2/3 items-center">
                     <!-- Icon list -->
                     <ul class="NavIconList flex items-center content-center">
-                        <li class="flex flex-col text-center justify-center px-1 hover:text-indigo-700 hover:cursor-pointer"
-                            @click="sidebarOpen">
-                            <svg aria-hidden="false" width="20px" height="16px" viewBox="0 0 18 16"
-                                transform="rotate(0)" class="fill-current">
-                                <path
-                                    d="M.8 7.2h16.5c.4 0 .8.3.8.8 0 .4-.3.8-.8.8H.8C.4 8.8 0 8.5 0 8s.3-.8.8-.8zm0-6h16.5c.4 0 .7.3.7.8 0 .4-.3.8-.8.8H.8C.3 2.7 0 2.4 0 2c0-.5.3-.8.8-.8zm0 12h16.5c.4 0 .8.3.8.8 0 .4-.3.8-.8.8H.8c-.4 0-.8-.3-.8-.8s.3-.8.8-.8z">
-                                </path>
-                            </svg>
+                        <li class="flex flex-col text-center justify-center px-1">
+                            <button x-on:click="sidebarOpen" class="hover:text-indigo-700 cursor-pointer">
+                                <svg aria-hidden="false" width="20px" height="16px" viewBox="0 0 18 16"
+                                    transform="rotate(0)" class="fill-current">
+                                    <path
+                                        d="M.8 7.2h16.5c.4 0 .8.3.8.8 0 .4-.3.8-.8.8H.8C.4 8.8 0 8.5 0 8s.3-.8.8-.8zm0-6h16.5c.4 0 .7.3.7.8 0 .4-.3.8-.8.8H.8C.3 2.7 0 2.4 0 2c0-.5.3-.8.8-.8zm0 12h16.5c.4 0 .8.3.8.8 0 .4-.3.8-.8.8H.8c-.4 0-.8-.3-.8-.8s.3-.8.8-.8z">
+                                    </path>
+                                </svg>
+                            </button>
                         </li>
                         <li class="px-1"></li>
                         <li
@@ -161,32 +162,93 @@
         <!-- END HEADER -->
 
         <!-- SIDEBAR -->
-        <div class="relative" x-show="!isSidebarOpen">
+        <div class="relative" x-show="isSideBarOpenFunc()">
             <div class="fixed inset-0 overflow-hidden">
                 <div class="absolute inset-0 overflow-hidden">
                     <!-- Overlay -->
-                    <div class="absolute inset-0 bg-gray-500 bg-opacity-25 transition-opacity" aria-hidden="true"></div>
+                    <div class="absolute inset-0 bg-gray-500 bg-opacity-25 transition-opacity" aria-hidden="true"
+                        x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500"
+                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                        x-show="isSideBarOpenFunc()"></div>
                     <!-- Content -->
                     <section class="absolute inset-y-0 left-0 max-w-full flex" aria-labelledby="slide-over-heading">
-                        <div class="relative w-screen max-w-md">
+                        <div class="relative w-screen max-w-sm">
                             <!-- Sidebar -->
-                            <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-visible" x-show="open"
+                            <div class="h-full flex flex-col bg-white shadow-xl overflow-y-visible"
+                                x-show="isSideBarOpenFunc()"
                                 x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
-                                x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+                                x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                                 x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
-                                x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
-                                <div class="px-4 sm:px-6">
-                                    <h2 id="slide-over-heading" class="text-lg font-medium text-gray-900">
-                                        Panel title
-                                    </h2>
+                                x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
+                                <!-- Close btn -->
+                                <div class="mb-4 py-5 px-8">
+                                    <button class="hover:text-indigo-700" x-on:click="sidebarClose">
+                                        <svg aria-hidden="false" aria-label="Close Menu" width="16px" height="100%"
+                                            viewBox="0 0 16 16" aria-controls="directory-blade" transform="rotate(0)"
+                                            class="fill-current">
+                                            <path
+                                                d="M9.1 8l4.5-4.5c.3-.3.3-.8 0-1.1s-.8-.3-1.1 0L8 6.9 3.5 2.5c-.3-.3-.8-.3-1.1 0s-.3.8 0 1.1L6.9 8l-4.5 4.5c-.3.3-.3.8 0 1.1.1.1.3.2.5.2s.4-.1.5-.2L8 9.1l4.5 4.5c.1.1.3.2.5.2s.4-.1.5-.2c.3-.3.3-.8 0-1.1L9.1 8z">
+                                            </path>
+                                        </svg>
+                                    </button>
                                 </div>
-                                <div class="mt-6 relative flex-1 px-4 sm:px-6">
-                                    <!-- Replace with your content -->
-                                    <div class="absolute inset-0 px-4 sm:px-6">
-                                        <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true">
-                                        </div>
+
+                                <!-- Content -->
+                                <div class="flex flex-col px-8 py-4 justify-between max-h-full overflow-y-scroll">
+                                    <div class="self-start w-full">
+                                        <ul class="font-semibold font-primary-font-sans text-left">
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">
+                                                Skincare</li>
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Makeup
+                                            </li>
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Body
+                                            </li>
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">
+                                                Fragrance</li>
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Shop
+                                                our Sets</li>
+                                        </ul>
                                     </div>
-                                    <!-- /End replace -->
+                                    <div class="self-end w-full">
+                                        <ul class="font-semibold font-primary-font-sans text-left">
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Looks
+                                                IRL</li>
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Into
+                                                The Gloss</li>
+                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">About
+                                                Glossier</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- SidebarFooter -->
+                                <div class="w-full absolute bottom-0 left-0 p-8 border-t bg-gray-100">
+                                    <div class="w-full relative group" height="fit-content">
+                                        <select name="locale" id="locale"
+                                            class="font-primary-font-sans text-base cursor-pointer w-full border rounded-sm pt-5 px-4 pb-2 appearance-none">
+                                            <option value="en-US">United States</option>
+                                            <option value="en-CA">Canada (EN)</option>
+                                            <option value="fr-CA">Canada (FR)</option>
+                                            <option value="en-GB">United Kingdom</option>
+                                        </select>
+
+                                        <label for="locale" aria-hidden="true"
+                                            class="flex font-base justify-between align-top w-full absolute top-0 left-0 px-4 pt-2 text-sm transition ease duration-200 -z-10">
+                                            <span
+                                                class="transform text-sm scale-75 relative block float-left transition duration-200 ease origin-top-left group-focus:text-indigo-700">Shipping
+                                                to:</span>
+                                            <!-- Icon -->
+                                            <div class="absolute pt-2" style="top: 50%; right: 0.625rem;">
+                                                <svg aria-hidden="true" width="14px" height="14px" fill="contentPrimary"
+                                                    viewBox="0 0 32 32" transform="rotate(0)" class="">
+                                                    <path
+                                                        d="M.005 9.258l2.76-2.759 13.477 13.476L29.246 6.969l2.76 2.76-15.764 15.765z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

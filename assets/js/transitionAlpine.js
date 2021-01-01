@@ -3,7 +3,14 @@ function transitionAlpine() {
     isSidebarOpen: false,
     isCartOpen: false,
     sidebarOpen() {
-      this.isSideBarOpen = true;
+      this.isSidebarOpen = true;
+      console.log("open sidebar");
+    },
+    sidebarClose() {
+      this.isSidebarOpen = false;
+    },
+    isSideBarOpenFunc() {
+      return this.isSidebarOpen === true;
     },
   };
 }
