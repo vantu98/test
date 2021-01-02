@@ -123,34 +123,34 @@
             <!-- Bottom nav -->
             <div class="transition delay-100 transition-transform duration-400 ease-in-out w-full border-b">
                 <ul id="menu"
-                    class="overflow-x-visible text-center font-semibold w-full flex justify-center relative font-primary-font-sans">
-                    <li class="p-2.5 inline-block text-sm">
+                    class="lg:overflow-x-visible xl:overflow-x-visible text-center font-semibold w-full flex justify-start lg:justify-center xl:justify-center relative font-primary-font-sans overflow-x-scroll whitespace-nowrap">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">Shop All</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">Skincare</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">Makeup</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">Body</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">Fragrance</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">
-                            Shop our Sets
+                            <span class="block w-auto">Shop our Sets</span>
                         </a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">GlossiWEAR</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">Gift Shop</a>
                     </li>
-                    <li class="p-2.5 inline-block text-sm">
+                    <li class="p-2.5 inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self">
                             Digital Gift Card
                         </a>
@@ -176,10 +176,10 @@
                         <div class="relative w-screen max-w-sm">
                             <!-- Sidebar -->
                             <div class="h-full flex flex-col bg-white shadow-xl overflow-y-visible"
-                                x-show="isSideBarOpenFunc()"
-                                x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+                                x-show="isSideBarOpenFunc()" x-on:click.away="sidebarClose"
+                                x-transition:enter="transform transition ease-in-out duration-300 sm:duration-500"
                                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
-                                x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+                                x-transition:leave="transform transition ease-in-out duration-300 sm:duration-500"
                                 x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
                                 <!-- Close btn -->
                                 <div class="mb-4 py-5 px-8">
