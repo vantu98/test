@@ -2,6 +2,7 @@ function transitionAlpine() {
   return {
     //vars
     isSidebarOpen: false,
+    isSearchFormOpen: false,
     isCartOpen: false,
     showBottomMenu: true,
     // Sidebar
@@ -15,9 +16,16 @@ function transitionAlpine() {
     isSideBarOpenFunc() {
       return this.isSidebarOpen === true;
     },
+    // Search Form
+    searchFormOpen() {
+      this.isSearchFormOpen = true;
+    },
+    searchFormClose() {
+      this.isSearchFormOpen = false;
+    },
     // Bottom Menu
     isScrollAtTop() {
-      let isScrollAtTop = window.pageYOffset > 50 ? true : false;
+      let isScrollAtTop = window.pageYOffset > 40 ? true : false;
       this.showBottomMenu = !isScrollAtTop;
     },
   };
