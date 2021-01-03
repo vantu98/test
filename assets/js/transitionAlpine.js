@@ -31,6 +31,13 @@ function transitionAlpine() {
     accountClose() {
       this.isAccountOpen = false;
     },
+    // SIDE CART
+    sidecartOpen() {
+      this.isCartOpen = true;
+    },
+    sidecartClose() {
+      this.isCartOpen = false;
+    },
     // BOTTOM MENU
     isScrollAtTop() {
       let isScrollAtTop = window.pageYOffset > 40 ? true : false;
