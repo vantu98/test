@@ -533,7 +533,7 @@
                 <section class="absolute inset-y-0 right-0 max-w-full flex" aria-labelledby="slide-over-heading">
                     <div class="relative w-screen max-w-sm">
                         <!-- Sidebar -->
-                        <div class="h-full flex flex-col bg-white shadow-xl overflow-y-visible bg-gray-50"
+                        <div class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll bg-gray-50"
                             x-show="isCartOpen" x-on:click.away="sidecartClose()"
                             x-transition:enter="transform transition ease-in-out duration-300 sm:duration-500"
                             x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
@@ -585,9 +585,9 @@
                             </div> -->
 
                             <!-- Bag with items -->
-                            <div class="flex flex-col items-start w-full overflow-y-scroll h-screen relative">
-                                <div class="w-full pt-4 px-4">
-                                    <div class="w-full flex flex-col flex-grow-0 flex-shrink-0 flex-basi">
+                            <div class="flex flex-col items-start w-full overflow-y-scroll relative">
+                                <div class="w-full pt-4 px-4 relative">
+                                    <div class="w-full flex flex-col flex-grow-0 flex-shrink-0 sticky top-0 left-0">
                                         <p class="text-sm text-left mb-2.5">
                                             $30.00 away from free standard shipping
                                         </p>
@@ -599,7 +599,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="w-full mt-4 flex flex-wrap justify-between">
+                                    <!-- <div class="w-full mt-4 flex flex-wrap justify-between">
                                         <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white"
                                             style="width:48%">
                                             <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
@@ -625,10 +625,72 @@
                                                     class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
                                             </div>
                                         </div>
+
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white"
+                                            style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover"
+                                                            src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057"
+                                                            alt="Flip Gross">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button
+                                                    class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button
+                                                    class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white"
+                                            style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover"
+                                                            src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057"
+                                                            alt="Flip Gross">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button
+                                                    class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button
+                                                    class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="w-full p-4 bg-green-500 overflow-y-scroll absolute top-0 left-0" style="height: calc(100%- 60px)">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Inventore nesciunt iusto sit quibusdam asperiores enim excepturi cumque neque atque mollitia recusandae odit quis ipsa sequi earum tenetur, ea veniam quas.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque doloribus incidunt, exercitationem, aperiam libero asperiores pariatur similique nostrum provident ad dolorum autem enim id impedit at vero, sapiente magnam illum.</p>
                                     </div>
                                 </div>
 
-                                <div class="absolute left-0 bottom-0 w-full p-4 bg-white shadow-xl">
+                                <div class="absolute left-0 right-0 bottom-0 w-full p-4 bg-white shadow-xl">
                                     <div class="flex justify-between">
                                         <p class="text-black font-semibold text-lg">Estimated Total</p>
                                         <div class="">
@@ -636,8 +698,7 @@
                                         </div>
                                     </div>
                                     <div class="w-full mt-2 flex flex-wrap">
-                                        <!-- Some checkout methods -->
-                                        <!-- Like Paypal, Google Pay -->
+                                        
                                         <div class="w-50 h-12 mx-auto block">
                                             <div class="">
                                                 <div class="w-full h-full"></div>
