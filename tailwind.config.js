@@ -16,7 +16,7 @@ module.exports = {
   },
   variants: {
     extend: {},
-    borderColor: ["focus-within"],
+    borderColor: ["focus-within", "hover"],
   },
   plugins: [],
 };

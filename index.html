@@ -331,11 +331,11 @@
 
                                 <!-- Check and change account logged or not -->
                                 <!-- Account not logged -->
-                                <div class="overflow-y-scroll h-full flex flex-col">
-                                    <div class="px-4 flex flex-nowrap items-center w-full h-12 justify-between mb-px">
+                                <!-- <div class="overflow-y-scroll h-full flex flex-col">
+                                    <div class="px-8 flex flex-nowrap items-center w-full h-12 justify-between mb-px">
                                         <div class="leading-none">
                                             <button
-                                                class="cursor-pointer appearance-none flex inline-flex relative items-center justify-center"
+                                                class="cursor-pointer appearance-none flex inline-flex relative items-center justify-center hover:text-blue-500"
                                                 x-on:click="accountClose()">
                                                 <svg aria-hidden="false" width="16px" height="16px" viewBox="0 0 16 16"
                                                     transform="rotate(0)" class="fill-current">
@@ -348,7 +348,7 @@
                                         <div class="">
                                             <h5 class="font-bold text-center text-lg w-full">Sign In</h5>
                                         </div>
-                                        <div class="relative flex items-center hover:text-indigo-700 cursor-pointer">
+                                        <div class="relative flex items-center hover:text-blue-500 cursor-pointer">
                                             <div id="" class="absolute w-full text-xs text-center"
                                                 style="top: 50%; transform: translate(0,-50%);">0</div>
                                             <svg aria-hidden="true" width="26px" height="26px" viewBox="0 0 29 21"
@@ -403,23 +403,110 @@
                                                         <form action="">
                                                             <div
                                                                 class="LabelFloating relative transform transition ease-in-out duration-200">
-                                                                <input placeholder="jane@example.com" type="text"
-                                                                    name="username" id="username" autocomplete="off"
+                                                                <input placeholder="jane@example.com" type="email"
+                                                                    name="username" id="username" autocomplete="on"
                                                                     class="focus-within:border-blue-500 h-12 w-full rounded-md border outline-none text-left px-4 pt-5 pb-2 text-base leading-4 overflow-x-hidden placeholder-transparent focus:placeholder-gray-500"
                                                                     required />
                                                                 <label for="username"
                                                                     class="w-full absolute top-0 left-0 flex justify-between align-top bg-transparent p-4 whitespace-nowrap text-md pointer-events-none leading-4">
                                                                     <span
-                                                                        class="relative left-px block pointer-events-none float-left origin-top-left">Email
+                                                                        class="relative left-px block pointer-events-none float-left origin-top-left text-gray-500 text-md">Email
                                                                         Address</span>
                                                                 </label>
                                                             </div>
+
+                                                            <div
+                                                                class="LabelFloating relative bg-white w-full mt-2 flex flex-col">
+                                                                <input placeholder="********" type="password"
+                                                                    name="password" id="password" autocomplete="off"
+                                                                    class="focus-within:border-blue-500 h-12 w-full rounded-md border outline-none text-left px-4 pt-5 pb-2 text-base leading-4 overflow-x-hidden placeholder-transparent focus:placeholder-gray-500"
+                                                                    required />
+                                                                <label for="password"
+                                                                    class="w-full absolute top-0 left-0 flex justify-between align-top bg-transparent p-4 whitespace-nowrap text-md pointer-events-none leading-4">
+                                                                    <span
+                                                                        class="relative left-px block pointer-events-none float-left origin-top-left text-gray-500 text-md">Password</span>
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="box-border mt-4">
+                                                                <label for="rememberMe"
+                                                                    class="inline-flex items-center">
+                                                                    <div class="relative flex">
+                                                                        <input type="checkbox" name="rememberMe"
+                                                                            id="rememberMe"
+                                                                            class="form-checkbox text-indigo-900 h-4 w-4 cursor-pointer rounded-sm">
+                                                                        <span
+                                                                            class="ml-2 font-medium leading-4 text-sm">Remember
+                                                                            me</span>
+                                                                    </div>
+                                                                </label>
+                                                            </div>
+                                                            <button
+                                                                class="bg-transparent underline text-black text-xs leading-4 text-left my-4 hover:text-blue-500">Forgot
+                                                                your password?</button>
+                                                            <button type="submit"
+                                                                class="w-full bg-black cursor-pointer inline-flex relative items-center justify-center rounded-md border border-black font-semibold text-base py-3.5 px-5 text-white hover:bg-gray-800">
+                                                                Sign In
+                                                            </button>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="px-8 w-full flex flex-col items-center">
+                                        <p class="text-sm my-4">
+                                            Get free Glossier credit for referring friends and save payment information
+                                            for easier purchasing.
+                                        </p>
+                                        <button
+                                            class="cursor-pointer inline-flex relative items-center justify-center border hover:border-black rounded-md text-base py-3.5 px-5 bg-white text-black h-auto text-center w-full font-semibold transform transition ease-in-out duration-100">Create
+                                            an account</button>
+                                    </div>
+                                </div> -->
+
+                                <!-- Account logged -->
+                                <div class="overflow-y-scroll h-full flex flex-col">
+                                    <div class="px-8 flex flex-nowrap items-center w-full h-12 justify-between mb-px">
+                                        <div class="leading-none">
+                                            <button
+                                                class="cursor-pointer appearance-none flex inline-flex relative items-center justify-center hover:text-blue-500"
+                                                x-on:click="accountClose()">
+                                                <svg aria-hidden="false" width="16px" height="16px" viewBox="0 0 16 16"
+                                                    transform="rotate(0)" class="fill-current">
+                                                    <path
+                                                        d="M9.1 8l4.5-4.5c.3-.3.3-.8 0-1.1s-.8-.3-1.1 0L8 6.9 3.5 2.5c-.3-.3-.8-.3-1.1 0s-.3.8 0 1.1L6.9 8l-4.5 4.5c-.3.3-.3.8 0 1.1.1.1.3.2.5.2s.4-.1.5-.2L8 9.1l4.5 4.5c.1.1.3.2.5.2s.4-.1.5-.2c.3-.3.3-.8 0-1.1L9.1 8z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="">
+                                            <h5 class="font-bold text-center text-lg w-full">Your Account</h5>
+                                        </div>
+                                        <div class="relative flex items-center hover:text-blue-500 cursor-pointer">
+                                            <div id="" class="absolute w-full text-xs text-center"
+                                                style="top: 50%; transform: translate(0,-50%);">0</div>
+                                            <svg aria-hidden="true" width="26px" height="26px" viewBox="0 0 29 21"
+                                                transform="rotate(0)" class="">
+                                                <path clip-rule="evenodd"
+                                                    d="M3.275 1.05c.116-.57.62-1 1.225-1h5c.605 0 1.11.43 1.225 1H26.5c.494 0 .925.24 1.218.532.293.293.532.724.532 1.218v16.574l-.015.073c-.163.815-.843 1.503-1.835 1.503H2c-.494 0-.925-.24-1.218-.532C.49 20.125.25 19.694.25 19.2V2.8c0-.494.24-.925.532-1.218S1.506 1.05 2 1.05zm-.025 1.5H2c-.006 0-.075.01-.157.093s-.093.15-.093.157v1.25h1.5zm-1.5 3V19.2c0 .006.01.075.093.157.082.082.15.093.157.093h24.4c.125 0 .2-.039.246-.08a.362.362 0 00.104-.162V5.55H4.5zm25-1.5V2.8c0-.006-.01-.075-.093-.157-.082-.082-.15-.093-.157-.093H10.75v1.5zm-17.5-1.5v-1h-4.5v2.5h4.5z"
+                                                    fill-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <ul class="px-8 pt-5">
+                                        <li class="py-2 hover:text-blue-500 hover:underline font-semibold"><a
+                                                href="#">Orders</a></li>
+                                        <li class="py-2 hover:text-blue-500 hover:underline font-semibold"><a
+                                                href="#">Shipping Addresses</a></li>
+                                        <li class="py-2 hover:text-blue-500 hover:underline font-semibold"><a
+                                                href="#">Payment & Credits</a></li>
+                                        <li class="py-2 hover:text-blue-500 hover:underline font-semibold"><a
+                                                href="#">Refer a Friend </a></li>
+                                        <li class="py-2 hover:text-blue-500 hover:underline font-semibold"><a
+                                                href="#">Sign Out</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
