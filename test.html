@@ -11,22 +11,20 @@
 
 <body>
     <div id="root" class="relative">
-        <ul class="bg-gray-100 flex flex-nowrap w-full overflow-x-scroll whitespace-nowrap">
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">Home</a></li>
-            <li class="inline-block w-auto flex flex-nowrap">
-                <a href="#" class="px-4 py-2">
-                    <span class="block">Shop All</span>
-                </a>
-            </li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">About</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">Contact</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">Maps</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">About Us</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">About Us</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">About Us</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">About Us</a></li>
-            <li class="inline-block w-auto flex flex-nowrap"><a href="#" class="px-4 py-2">About Us</a></li>
-        </ul>
+        <form action="POST" class="group antialiased py-2 px-4">
+            <div class="w-full box-border relative bg-white flex flex-col">
+                <input type="text" name="username" id="username"
+                    class="outline-none focus:border-blue-500 rounded-lg w-full h-12 text-left pt-5 px-4 pb-2 border overflow-x-hidden transition-all font-medium"
+                    autocomplete="off" placeholder="" />
+
+                <label for="username"
+                    class="w-full font-bold flex justify-between align-top left-0 top-0 absolute bg-transparent p-4 whitespace-nowrap transition duration-200 ease-in-out pointer-events-none text-md leading-none">
+                    <span
+                        class="active:text-yellow-300 relative left-px block pointer-events-none float-left text-gray-500 origin-top-left transform transition duration-200">Email</span>
+                </label>
+            </div>
+        </form>
+
     </div>
 </body>
 

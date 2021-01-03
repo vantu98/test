@@ -5,6 +5,9 @@
     "postcss": "^8.2.2",
     "tailwindcss": "^2.0.2"
   },
+  "scripts": {
+    "build": "npx tailwindcss-cli build src/css/tailwind.css -o assets/css/app.css"
+  },
   "name": "Glossier",
   "version": "1.0.0",
   "description": "Glossier pages",

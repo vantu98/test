@@ -6,10 +6,17 @@ module.exports = {
       fontFamily: {
         "primary-font-sans": ["Source Sans Pro"],
       },
+      zIndex: {
+        "-1": "-1",
+      },
+      transformOrigin: {
+        0: "0%",
+      },
     },
   },
   variants: {
     extend: {},
+    borderColor: ["focus-within"],
   },
   plugins: [],
 };
