@@ -11,20 +11,182 @@
 
 <body>
     <div id="root" class="relative">
-        <form action="POST" class="group antialiased py-2 px-4">
-            <div class="w-full box-border relative bg-white flex flex-col">
-                <input type="text" name="username" id="username"
-                    class="outline-none focus:border-blue-500 rounded-lg w-full h-12 text-left pt-5 px-4 pb-2 border overflow-x-hidden transition-all font-medium"
-                    autocomplete="off" placeholder="" />
-
-                <label for="username"
-                    class="w-full font-bold flex justify-between align-top left-0 top-0 absolute bg-transparent p-4 whitespace-nowrap transition duration-200 ease-in-out pointer-events-none text-md leading-none">
-                    <span
-                        class="active:text-yellow-300 relative left-px block pointer-events-none float-left text-gray-500 origin-top-left transform transition duration-200">Email</span>
-                </label>
+        <!-- SIDE CART -->
+        <div class="relative" x-show="isCartOpen">
+            <div class="fixed inset-0 overflow-hidden">
+                <div class="absolute inset-0 overflow-hidden">
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-gray-500 bg-opacity-25 transition-opacity" aria-hidden="true" x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="isCartOpen">
+                    </div>
+                </div>
+                <!-- Content -->
+                <section class="absolute inset-y-0 right-0 max-w-full flex" aria-labelledby="slide-over-heading">
+                    <div class="relative w-screen max-w-sm">
+                        <!-- Sidebar -->
+                        <div class="h-screen flex flex-col bg-white shadow-xl overflow-y-scroll bg-gray-50" x-show="isCartOpen" x-on:click.away="sidecartClose()" x-transition:enter="transform transition ease-in-out duration-300 sm:duration-500" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-300 sm:duration-500" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+                            <div class="flex flex-col items-start w-full overflow-y-scroll bg-red-100" style="height: calc(100% - 3rem)">
+                                <div class="w-full pt-4 px-4">
+                                    <div class="w-full flex flex-col flex-grow-0 flex-shrink-0">
+                                        <p class="text-sm text-left mb-2.5">
+                                            $30.00 away from free standard shipping
+                                        </p>
+                                        <div class="w-full border h-1.5 rounded-full border-red-200" style="padding:4px;">
+                                            <div class="h-1 w-1/4 bg-red-200 rounded-full" role="progressbar" style="margin-top:-2px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="w-full mt-4 flex flex-wrap justify-between">
+                                        <div class="ItemsInCartList flex flex-wrap justify-between">
+                                            <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white" style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover" src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057" alt="Flip Gross">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white" style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover" src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057" alt="Flip Gross">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white" style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover" src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057" alt="Flip Gross">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white" style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover" src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057" alt="Flip Gross">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white" style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover" src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057" alt="Flip Gross">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white" style="width:48%">
+                                            <div class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
+                                                <div class="">
+                                                    <p class="font-semibold text-md mb-1">
+                                                        1x Lip Gross
+                                                    </p>
+                                                    <span>$11</span>
+                                                </div>
+                                                <div class="flex-grow w-3/4 h-auto mx-auto">
+                                                    <div class="relative overflow-hidden bg-no-repeat">
+                                                        <img class="object-cover" src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057" alt="Flip Gross">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-nowrap items-center">
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                <button class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="absolute left-0 right-0 bottom-0 w-full p-4 bg-white shadow-xl">
+                                            <div class="flex justify-between">
+                                                <p class="text-black font-semibold text-lg">Estimated Total</p>
+                                                <div class="">
+                                                    <div class="text-black text-lg font-semibold">$11.00</div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full mt-2 flex flex-wrap">
+                                                <div class="w-50 h-12 mx-auto block">
+                                                    <div class="">
+                                                        <div class="w-full h-full"></div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="h-auto cursor-pointer inline-flex flex-auto relative items-center justify-center rounded-sm font-semibold text-base mx-auto text-center bg-black border border-black hover:bg-gray-800 text-white px-5 py-3.5 ">Checkout</a>
+                                            </div>
+                                            <p class="text-xs mt-2 text-gray-500">By checking out, I agree to the
+                                                <a href="#" class="text-black underline hover:text-blue-500">Terms of Use </a>
+                                                and acknowledge that I have read the
+                                                <a href="#" class="text-black underline hover:text-blue-500">Privacy Policy</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </form>
-
+        </div>
+        <!-- END SIDE CART -->
+        <section class="w-full h-screen bg-gray-900">
+        </section>
+        <section class="w-full h-screen bg-gray-800">
+        </section>
+        <section class="w-full h-screen bg-gray-700">
+        </section>
     </div>
 </body>
 

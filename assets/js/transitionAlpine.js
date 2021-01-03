@@ -5,6 +5,7 @@ function transitionAlpine() {
     isSearchFormOpen: false,
     isAccountOpen: false,
     isCartOpen: false,
+    isPromoFormOpen: false,
     showBottomMenu: true,
     // SIDEBAR
     sidebarOpen() {
@@ -37,6 +38,10 @@ function transitionAlpine() {
     },
     sidecartClose() {
       this.isCartOpen = false;
+    },
+    // PROMO FORM
+    promoFormOpen(){
+      this.isPromoFormOpen = true;
     },
     // BOTTOM MENU
     isScrollAtTop() {

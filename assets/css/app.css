@@ -582,12 +582,12 @@ video {
   }
 }
 
-.LabelFloating input:focus-within ~ label span{
+.LabelFloating input:focus-within~label span {
   --tw-text-opacity: 1;
   color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
 
-.LabelFloating input:not(:-moz-placeholder-shown) ~ label span{
+.LabelFloating input:not(:-moz-placeholder-shown)~label span{
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -603,7 +603,7 @@ video {
   transition-duration: 200ms;
 }
 
-.LabelFloating input:not(:-ms-input-placeholder) ~ label span{
+.LabelFloating input:not(:-ms-input-placeholder)~label span{
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -619,7 +619,7 @@ video {
   transition-duration: 200ms;
 }
 
-.LabelFloating input:focus-within ~ label span, .LabelFloating input:not(:placeholder-shown) ~ label span{
+.LabelFloating input:focus-within~label span, .LabelFloating input:not(:placeholder-shown)~label span{
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -635,7 +635,7 @@ video {
   transition-duration: 200ms;
 }
 
-.ProductCartButton{
+.ProductCartButton {
   border-width: 1px 0px 0px;
   border-right-style: initial;
   border-bottom-style: initial;
@@ -645,6 +645,36 @@ video {
   border-left-color: initial;
   -o-border-image: initial;
      border-image: initial;
+}
+
+.GradientOverlay::before {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100px;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+  z-index: 200;
+}
+
+.GradientOverlay::after {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 100%, rgb(255, 255, 255) 0%);
+  z-index: 100;
+}
+
+.pb-full{
+  padding-bottom: 100%;
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]){
