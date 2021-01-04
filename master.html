@@ -12,7 +12,7 @@
 <body>
     <div id="root" class="font-primary-font-sans" x-data="transitionAlpine()">
         <!-- HEADER -->
-        <header class="sticky top-0 w-full bg-white">
+        <header class="sticky top-0 w-full bg-white z-40">
             <!-- Top notification -->
             <div class="w-full h-full bg-red-100 relative flex items-center justify-center py-1 z-50">
                 <svg aria-hidden="true" width="28px" height="28px" fill="black" viewBox="0 0 54 25" stroke="black" stroke-width="0.5" transform="rotate(0)" class="">
@@ -166,7 +166,7 @@
         </header>
         <!-- END HEADER -->
         <!-- SIDEBAR -->
-        <div class="relative" x-show="isSideBarOpenFunc()">
+        <div class="relative z-50" x-show="isSideBarOpenFunc()">
             <div class="fixed inset-0 overflow-hidden">
                 <div class="absolute inset-0 overflow-hidden">
                     <!-- Overlay -->
@@ -242,7 +242,7 @@
         </div>
         <!-- END SIDEBAR -->
         <!-- ACCOUNT -->
-        <div class="relative" x-show="isAccountOpen">
+        <div class="relative z-50" x-show="isAccountOpen">
             <div class="fixed inset-0 overflow-hidden">
                 <div class="absolute inset-0 overflow-hidden">
                     <!-- Overlay -->
@@ -424,7 +424,7 @@
         </div>
         <!-- END ACCOUNT -->
         <!-- SIDE CART -->
-        <div class="relative" x-show="isCartOpen">
+        <div class="relative z-50" x-show="isCartOpen">
             <div class="fixed inset-0 overflow-hidden">
                 <div class="absolute inset-0 overflow-hidden">
                     <!-- Overlay -->
@@ -680,19 +680,18 @@
         <section class="w-full h-screen bg-gray-800"></section>
         <section class="w-full h-screen bg-gray-700"></section>
         <!-- FOOTER -->
-        <footer class="bg-black text-white pt-10 pb-48">
+        <footer class="bg-black text-white pt-10 pb-24">
             <!-- Container -->
             <div class="w-full lg:w-11/12 xl:w-2/3 mx-auto">
-                <div class="flex flex-col lg:flex-row xl:flex-row justify-between items-center">
+                <div class="flex flex-col-reverse lg:flex-row xl:flex-row justify-between items-center">
                     <!-- Shop -->
-                    <div class="w-1/2 px-4">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 px-4">
                         <div class="flex items-center">
                             <div class="mr-7">
-                                <div class="h-36 w-36 rounded-full">
+                                <div class="h-16 w-16 lg:h-36 lg:w-36 xl:h-36 xl:w-36 rounded-full">
                                     <img src="https://images.ctfassets.net/p3w8f4svwgcg/1JwGMVi9NoHWRWzVZtJb9B/5530a25fa79c8f6f152e7309592584c2/4_Boston.jpg?w=200&q=80&fm=webp" alt="Logo" class="w-full h-full rounded-full">
                                 </div>
                             </div>
-
                             <div class="">
                                 <h2 class="font-medium text-2xl text-white">Glossier Store</h2>
                                 <a href="#" class="underline text-sm hover:text-gray-500">More here</a>
@@ -700,15 +699,15 @@
                         </div>
                     </div>
                     <!-- Shipping To -->
-                    <div class="w-1/3 relative group" height="fit-content">
-                        <select name="locale" id="locale" class="bg-black font-primary-font-sans text-base cursor-pointer w-full border-b rounded-sm pt-5 px-4 pb-2 appearance-none">
+                    <div class="w-full lg:w-1/3 xl:w-1/3 p-2 pb-4 xl:p-0 lg:p-0 relative group" height="fit-content">
+                        <select name="locale" id="locale" class="bg-black font-primary-font-sans text-base cursor-pointer w-full rounded-sm pt-5 px-4 pb-2 appearance-none">
                             <option value="en-US">United States</option>
                             <option value="en-CA">Canada (EN)</option>
                             <option value="fr-CA">Canada (FR)</option>
                             <option value="en-GB">United Kingdom</option>
                         </select>
-                        <label for="locale" aria-hidden="true" class="flex font-base justify-between align-top w-full absolute top-0 left-0 px-4 pt-2 text-sm transition ease duration-200 -z-1">
-                            <span class="transform text-sm scale-75 relative block float-left transition duration-200 ease origin-top-left group-focus:text-indigo-700">Shipping
+                        <label for="locale" aria-hidden="true" class="flex font-base justify-between align-top w-full absolute top-0 left-0 px-4 pt-2 text-sm transition ease duration-200 text-white">
+                            <span class="transform text-sm text-white scale-75 relative block float-left transition duration-200 ease origin-top-left">Shipping
                                 to:</span>
                             <!-- Icon -->
                             <div class="absolute pt-2 text-white" style="top: 50%; right: 0.625rem;">
@@ -720,14 +719,12 @@
                         </label>
                     </div>
                 </div>
-
                 <!-- divider -->
                 <div class="w-full py-10"></div>
-
                 <!-- Menu -->
-                <div class="flex flex-wrap flex-shrink-1 items-start justify-between">
-                    <div class="px-4 w-2/5">
-                        <div class="">
+                <div class="flex flex-col lg:flex-row xl:flex-row flex-wrap flex-shrink-1 items-start justify-between">
+                    <div class="px-4 w-full lg:w-2/5 xl:w-2/5">
+                        <div class="mb-4 xl:mb-0 lg:mb-0">
                             <p class="text-medium text-sm">
                                 Refer your friend, get £10
                             </p>
@@ -735,7 +732,7 @@
                             <button class="border border-white transition transform ease-in-out duration-200 cursor-pointer inline-flex relative items-center justify-center rounded-sm py-3 px-6 text-center hover:text-black hover:bg-white">Get £10</button>
                         </div>
                     </div>
-                    <div class="px-4 w-1/2">
+                    <div class="px-4 hidden lg:block xl:block w-1/2">
                         <div class="flex">
                             <div class="w-1/3 flex flex-col">
                                 <p class="font-thin uppercase text-xs text-gray-500">About Glosier</p>
@@ -754,26 +751,80 @@
                                 <p class="font-thin uppercase text-xs text-gray-500">More</p>
                                 <a href="#" class="transition transform ease-in-out duration-200 hover:text-gray-500 hover:underline font-medium text-xs text-white text-left my-2.5 uppercase">Into the gloss</a>
                                 <a href="#" class="transition transform ease-in-out duration-200 hover:text-gray-500 hover:underline font-medium text-xs text-white text-left my-2.5 uppercase">Free stuff</a>
-                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 block lg:hidden xl:hidden w-full">
+                        <div class="flex flex-wrap flex-shrink-1">
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">about us</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">company blog</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">into the gloss</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">redeem gift card</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">help & faq</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">careers</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">contact</a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">free stuff </a>
+                            </div>
+                            <div class="px-2 w-1/2">
+                                <a href="#" class="text-xs text-left uppercase my-2.5 inline-block">return & exchanges</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- divider -->
                 <div class="w-full py-10"></div>
-
-                <div class="flex flex-wrap justify-between items-center">
-                    <div class="flex">
-                        <div class="text-white">
-                        <svg aria-hidden="true" width="32px" height="32px" fill="white" viewBox="0 0 24 32" transform="rotate(0)" class="fill-current"><path d="M23.84 17.4l-.003-7.886c0-1.01-.827-.955-1.37-.638-1.899 1.1-5.596 3.306-6.105 3.548-.38.18-.646.488-.646.949 0 1.148.168 2.686.168 3.98 0 1.97-.313 3.493-1.782 4.305-.89.488-2.377.368-3.723-.982-4.447-4.467-1.313-15.168 9.983-16.798.241-.033.435-.067.593-.093.263-.04.465-.228.465-.502 0-.23-.16-.404-.366-.484l-.346-.134c-.598-.22-5.362-1.922-6.965-2.519C13.14-.079 12.354.01 12.09.063-1.907 3.1-3.713 19.978 6.477 26.619c.108.07.559.343 1.055.055 1.386-.8 5.416-3.193 7.076-4.099 3.566-1.946 6.206-1.657 7.502.112.882 1.208.805 2.897.023 3.93-.944 1.248-2.7 1.405-3.612.375-.674-.762-1.839-1.387-3.034-1.154-1.283.245-2.404 1.134-2.549 2.549-.168 1.672.987 3.134 2.709 3.49 3.842.8 8.207-2.384 8.207-7.633l-.003-1.934c-.005-1.433-.01-3.174-.01-4.91z" fill-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="mx-4">
-                        <div class="flex flex-col text-base font-thin">
-                            <p>&#169; 2021 Glossier. All right reserved.</p>
+                <div class="flex flex-col-reverse lg:flex-row xl:flex-row flex-wrap justify-between items-center">
+                    <div class="flex flex-col-reverse text-center lg:text-left xl:text-left lg:flex-row xl:flex-row items-center justify-center">
+                        <div class="text-white pt-4 lg:pt-0 xl:p-0">
+                            <svg aria-hidden="true" width="32px" height="32px" fill="white" viewBox="0 0 24 32" transform="rotate(0)" class="fill-current">
+                                <path d="M23.84 17.4l-.003-7.886c0-1.01-.827-.955-1.37-.638-1.899 1.1-5.596 3.306-6.105 3.548-.38.18-.646.488-.646.949 0 1.148.168 2.686.168 3.98 0 1.97-.313 3.493-1.782 4.305-.89.488-2.377.368-3.723-.982-4.447-4.467-1.313-15.168 9.983-16.798.241-.033.435-.067.593-.093.263-.04.465-.228.465-.502 0-.23-.16-.404-.366-.484l-.346-.134c-.598-.22-5.362-1.922-6.965-2.519C13.14-.079 12.354.01 12.09.063-1.907 3.1-3.713 19.978 6.477 26.619c.108.07.559.343 1.055.055 1.386-.8 5.416-3.193 7.076-4.099 3.566-1.946 6.206-1.657 7.502.112.882 1.208.805 2.897.023 3.93-.944 1.248-2.7 1.405-3.612.375-.674-.762-1.839-1.387-3.034-1.154-1.283.245-2.404 1.134-2.549 2.549-.168 1.672.987 3.134 2.709 3.49 3.842.8 8.207-2.384 8.207-7.633l-.003-1.934c-.005-1.433-.01-3.174-.01-4.91z" fill-rule="evenodd"></path>
+                            </svg>
                         </div>
+                        <div class="mx-4">
+                            <div class="flex flex-col text-sm font-thin">
+                                <p>&#169; 2021 Glossier. All right reserved.</p>
+                                <ul class="flex whitespace-nowrap">
+                                    <li><a href="#" class="text-white text-xs font-thin underline hover:text-gray-500 mr-4">Privacy Policy</a></li>
+                                    <li><a href="#" class="text-white text-xs font-thin underline hover:text-gray-500 mr-4">Terms of Use</a></li>
+                                    <li><a href="#" class="text-white text-xs font-thin underline hover:text-gray-500 mr-4">Accessibility</a></li>
+                                    <li><a href="#" class="text-white text-xs font-thin underline hover:text-gray-500 mr-4">Supply Chain Transparency</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
                     </div>
-                    </div>
+                    <div class="SocialWrapper flex justify-end items-center mb-4 lg:mb-0 xl:mb-0">
+                            <a href="#" class="mr-3 text-white hover:text-gray-500 transform transition duration-200 ease-in-out w-6 h-6 lg:w-4 lg:h-4 xl:w-4 xl:h-4 lg:w-4 lg:h-4">
+                                <svg aria-hidden="false" viewBox="0 0 1792 1792" transform="rotate(0)" class="fill-current"><path d="M1152 896q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm138 0q0 164-115 279t-279 115-279-115-115-279 115-279 279-115 279 115 115 279zm108-410q0 38-27 65t-65 27-65-27-27-65 27-65 65-27 65 27 27 65zM896 266q-7 0-76.5-.5t-105.5 0-96.5 3-103 10T443 297q-50 20-88 58t-58 88q-11 29-18.5 71.5t-10 103-3 96.5 0 105.5.5 76.5-.5 76.5 0 105.5 3 96.5 10 103T297 1349q20 50 58 88t88 58q29 11 71.5 18.5t103 10 96.5 3 105.5 0 76.5-.5 76.5.5 105.5 0 96.5-3 103-10 71.5-18.5q50-20 88-58t58-88q11-29 18.5-71.5t10-103 3-96.5 0-105.5-.5-76.5.5-76.5 0-105.5-3-96.5-10-103T1495 443q-20-50-58-88t-88-58q-29-11-71.5-18.5t-103-10-96.5-3-105.5 0-76.5.5zm768 630q0 229-5 317-10 208-124 322t-322 124q-88 5-317 5t-317-5q-208-10-322-124t-124-322q-5-88-5-317t5-317q10-208 124-322t322-124q88-5 317-5t317 5q208 10 322 124t124 322q5 88 5 317z"></path></svg>
+                            </a>
+                            <a href="#" class="mr-3 text-white hover:text-gray-500 transform transition duration-200 ease-in-out w-6 h-6 lg:w-4 lg:h-4 xl:w-4 xl:h-4 lg:w-4 lg:h-4">
+                                <svg aria-hidden="false" viewBox="0 0 1792 1792" transform="rotate(0)" class="fill-current"><path d="M1664 896q0 209-103 385.5T1281.5 1561 896 1664q-111 0-218-32 59-93 78-164 9-34 54-211 20 39 73 67.5t114 28.5q121 0 216-68.5t147-188.5 52-270q0-114-59.5-214T1180 449t-255-63q-105 0-196 29t-154.5 77-109 110.5-67 129.5T377 866q0 104 40 183t117 111q30 12 38-20 2-7 8-31t8-30q6-23-11-43-51-61-51-151 0-151 104.5-259.5T904 517q151 0 235.5 82t84.5 213q0 170-68.5 289T980 1220q-61 0-98-43.5T859 1072q8-35 26.5-93.5t30-103T927 800q0-50-27-83t-77-33q-62 0-105 57t-43 142q0 73 25 122l-99 418q-17 70-13 177-206-91-333-281T128 896q0-209 103-385.5T510.5 231 896 128t385.5 103T1561 510.5 1664 896z"></path></svg>
+                            </a>
+                            <a href="#" class="mr-3 text-white hover:text-gray-500 transform transition duration-200 ease-in-out w-6 h-6 lg:w-4 lg:h-4 xl:w-4 xl:h-4 lg:w-4 lg:h-4">
+                                <svg aria-hidden="false" viewBox="0 0 1792 1792" transform="rotate(0)" class="fill-current"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759H734V905H479V609h255V391q0-186 104-288.5T1115 0q147 0 228 12z"></path></svg>
+                            </a>
+                            <a href="#" class="mr-3 text-white hover:text-gray-500 transform transition duration-200 ease-in-out w-6 h-6 lg:w-4 lg:h-4 xl:w-4 xl:h-4 lg:w-4 lg:h-4">
+                                <svg aria-hidden="false" viewBox="0 0 1792 1792" transform="rotate(0)" class="fill-current"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5T1369.5 1125 1185 1335.5t-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5T285 1033q33 5 61 5 43 0 85-11-112-23-185.5-111.5T172 710v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5T884 653q-8-38-8-74 0-134 94.5-228.5T1199 256q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path></svg>
+                            </a>
+                            <a href="#" class="mr-3 text-white hover:text-gray-500 transform transition duration-200 ease-in-out w-6 h-6 lg:w-4 lg:h-4 xl:w-4 xl:h-4 lg:w-4 lg:h-4">
+                                <svg aria-hidden="false" viewBox="0 0 1792 1792" transform="rotate(0)" class="fill-current"><path d="M1099 1244v211q0 67-39 67-23 0-45-22v-301q22-22 45-22 39 0 39 67zm338 1v46h-90v-46q0-68 45-68t45 68zm-966-218h107v-94H266v94h105v569h100v-569zm288 569h89v-494h-89v378q-30 42-57 42-18 0-21-21-1-3-1-35v-364h-89v391q0 49 8 73 12 37 58 37 48 0 102-61v54zm429-148v-197q0-73-9-99-17-56-71-56-50 0-93 54V933h-89v663h89v-48q45 55 93 55 54 0 71-55 9-27 9-100zm338-10v-13h-91q0 51-2 61-7 36-40 36-46 0-46-69v-87h179v-103q0-79-27-116-39-51-106-51-68 0-107 51-28 37-28 116v173q0 79 29 116 39 51 108 51 72 0 108-53 18-27 21-54 2-9 2-58zM918 525V315q0-69-43-69t-43 69v210q0 70 43 70t43-70zm719 751q0 234-26 350-14 59-58 99t-102 46q-184 21-555 21t-555-21q-58-6-102.5-46t-57.5-99q-26-112-26-350 0-234 26-350 14-59 58-99t103-47q183-20 554-20t555 20q58 7 102.5 47t57.5 99q26 112 26 350zM639 0h102L620 399v271H520V399q-14-74-61-212Q422 84 394 0h106l71 263zm370 333v175q0 81-28 118-38 51-106 51-67 0-105-51-28-38-28-118V333q0-80 28-117 38-51 105-51 68 0 106 51 28 37 28 117zm335-162v499h-91v-55q-53 62-103 62-46 0-59-37-8-24-8-75V171h91v367q0 33 1 35 3 22 21 22 27 0 57-43V171h91z"></path></svg>
+                            </a>
+                        </div>
                 </div>
             </div>
         </footer>
