@@ -594,6 +594,10 @@ video {
   display: block;
 }
 
+.SearchItemWidth{
+  width: calc(25% - 16px);
+}
+
 .TransitionUp{
   --tw-translate-x: 0;
   --tw-translate-y: 0;

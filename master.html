@@ -121,7 +121,7 @@
                     x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0"
                     x-transition:leave="transform transition ease-in-out duration-200 sm:duration-300"
                     x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full">
-                    <div class="w-full h-full relative">
+                    <div class="w-full h-full relative z-30 bg-gray-100">
                         <div class="w-full h-12 bg-white absolute top-0 left-0" x-on:click.away="searchFormClose()">
                             <div
                                 class="w-full h-full lg:mx-auto xl:mx-auto flex place-content-center justify-between lg:w-11/12 xl:w-2/3 items-center px-2.5 lg:px-0 xl:px-0">
@@ -155,6 +155,206 @@
                                         placeholder="Search for products, categories, content"
                                         class="text-md lg:text-base xl:text-base py-1 px-2 w-full">
                                 </form>
+                            </div>
+
+                            <div class="w-full overflow-x-hidden overflow-y-auto bg-gray-50 pb-4">
+                                <div class="">
+                                    <!-- On Mobile -->
+                                    <div class="block lg:hidden xl:hidden"></div>
+
+                                    <!-- On Laptop -->
+                                    <div class="hidden lg:block xl:block mx-auto lg:w-11/12 xl:w-2/3">
+                                        <div class="flex flex-wrap flex-shrink-1">
+                                            <div class="w-1/4">
+                                                <div class="text-left">
+                                                    <div class="pt-2">
+                                                        <h1 class="text-sm text-gray-500 my-6">
+                                                            Most popular searches
+                                                        </h1>
+
+                                                        <ul>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">cloud paint
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">balm
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">lip
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">boy grow
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">lip gross
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">mascara
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button>
+                                                                    <p class="mb-1.5 hover:text-blue-500">moisturizer
+                                                                    </p>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="px-4 w-3/4">
+                                                <div class="text-left">
+                                                    <div class="pt-2">
+                                                        <h1 class="text-sm text-gray-500 my-6">
+                                                            Most popular products
+                                                        </h1>
+
+                                                        <ul>
+                                                            <li class="SearchItemWidth inline-block mr-2">
+                                                                <div class="flex flex-col items-start">
+                                                                    <div class="w-full">
+                                                                        <a href="#">
+                                                                            <picture class="">
+                                                                                <source type="image/webp"
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80&amp;fm=webp 600w"
+                                                                                    sizes="600px"><img
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80 600w"
+                                                                                    src="//images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg"
+                                                                                    alt="" sizes="600px"
+                                                                                    class="Image-auzj96-1 kJbLWJ">
+                                                                            </picture>
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="w-full mt-4">
+                                                                        <a href="#"
+                                                                            class="text-sm font-semibold hover:text-blue-500 py-1">
+                                                                            Balm Dotcom
+                                                                            <span class="font-medium block">universal
+                                                                                skin
+                                                                                salve</span>
+                                                                        </a>
+                                                                        <p class="font-thin text-sm">
+                                                                            9 flavors available
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="SearchItemWidth inline-block mr-2">
+                                                                <div class="flex flex-col items-start">
+                                                                    <div class="w-full">
+                                                                        <a href="#">
+                                                                            <picture class="">
+                                                                                <source type="image/webp"
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80&amp;fm=webp 600w"
+                                                                                    sizes="600px"><img
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80 600w"
+                                                                                    src="//images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg"
+                                                                                    alt="" sizes="600px"
+                                                                                    class="Image-auzj96-1 kJbLWJ">
+                                                                            </picture>
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="w-full mt-4">
+                                                                        <a href="#"
+                                                                            class="text-sm font-semibold hover:text-blue-500 py-1">
+                                                                            Balm Dotcom
+                                                                            <span class="font-medium block">universal
+                                                                                skin
+                                                                                salve</span>
+                                                                        </a>
+                                                                        <p class="font-thin text-sm">
+                                                                            9 flavors available
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="SearchItemWidth inline-block mr-2">
+                                                                <div class="flex flex-col items-start">
+                                                                    <div class="w-full">
+                                                                        <a href="#">
+                                                                            <picture class="">
+                                                                                <source type="image/webp"
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80&amp;fm=webp 600w"
+                                                                                    sizes="600px"><img
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80 600w"
+                                                                                    src="//images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg"
+                                                                                    alt="" sizes="600px"
+                                                                                    class="Image-auzj96-1 kJbLWJ">
+                                                                            </picture>
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="w-full mt-4">
+                                                                        <a href="#"
+                                                                            class="text-sm font-semibold hover:text-blue-500 py-1">
+                                                                            Balm Dotcom
+                                                                            <span class="font-medium block">universal
+                                                                                skin
+                                                                                salve</span>
+                                                                        </a>
+                                                                        <p class="font-thin text-sm">
+                                                                            9 flavors available
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="SearchItemWidth inline-block mr-2">
+                                                                <div class="flex flex-col items-start">
+                                                                    <div class="w-full">
+                                                                        <a href="#">
+                                                                            <picture class="">
+                                                                                <source type="image/webp"
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80&amp;fm=webp 600w"
+                                                                                    sizes="600px"><img
+                                                                                    srcset="https://images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg?w=600&amp;q=80 600w"
+                                                                                    src="//images.ctfassets.net/p3w8f4svwgcg/5IlsbSgF6G03RFjU6bGR9h/ed0ada6c668ba541d84c139d5d55b398/balmdotcom-berry-smooth-square.jpg"
+                                                                                    alt="" sizes="600px"
+                                                                                    class="Image-auzj96-1 kJbLWJ">
+                                                                            </picture>
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="w-full mt-4">
+                                                                        <a href="#"
+                                                                            class="text-sm font-semibold hover:text-blue-500 py-1">
+                                                                            Balm Dotcom
+                                                                            <span class="font-medium block">universal
+                                                                                skin
+                                                                                salve</span>
+                                                                        </a>
+                                                                        <p class="font-thin text-sm">
+                                                                            9 flavors available
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
