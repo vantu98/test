@@ -11,7 +11,7 @@
 
 <body>
     <div id="root" x-data="transitionAlpine()">
-        <header class="w-full sticky top-0 bg-white z-40">
+        <header class="w-full sticky top-0 bg-white z-40 relative" @scroll.window="isScrollAtTop()">
             <!-- Top notification -->
             <div class="w-full h-full bg-banner-red relative ">
                 <div class="container flex items-center justify-center py-1 z-50 min-h-40px">
@@ -40,7 +40,7 @@
                     </svg>
                     <span class="inline-block text-black font-medium ml-2">
                         <a href="#"
-                            class="hover:text-blue-500 leading-4 cursor-pointer text-sm lg:text-sm xl:text-sm underline">
+                            class="hover:text-blue-500 leading-4 cursor-pointer text-xs md:text-sm lg:text-sm xl:text-sm underline">
                             It’s the last week to shop our holiday exclusive sets!
                         </a>
                     </span>
@@ -49,8 +49,9 @@
             <!-- End Top Notification -->
 
             <!-- Main Nav -->
-            <div class="w-full relative flex items-center h-12">
-                <div class=" h-full mx-auto flex place-content-center justify-between items-center container">
+            <div class="w-full relative flex items-center h-12 bg-white">
+                <div
+                    class="container px-4 md:px-8 lg:px-12 xl:px-14 h-full mx-auto flex place-content-center justify-between items-center ">
                     <!-- Icon list -->
                     <ul class="flex items-center content-center">
                         <li class="flex flex-col text-center justify-center px-1">
@@ -149,6 +150,7 @@
                                 </form>
                             </div>
 
+                            <!-- Search Field -->
                             <div class="w-full overflow-x-hidden overflow-y-auto bg-gray-50 pb-4">
                                 <div class="">
                                     <!-- On Mobile -->
@@ -537,12 +539,14 @@
             </div>
             <!-- End Main Nav -->
             <!-- Bottom nav -->
-            <div class="w-full border-b" x-show="showBottomMenu" @scroll.window="isScrollAtTop()"
-                x-transition:enter="ease-in-out duration-300 delay-100" x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-300 delay-100"
-                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <div class="w-full border-b absolute left-0 bg-white -z-10" x-show="showBottomMenu"
+                x-transition:enter="transform transition ease-in-out duration-300 sm:duration-500"
+                x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0"
+                x-transition:leave="transform transition ease-in-out duration-300 sm:duration-500"
+                x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full">
                 <ul id="menu"
-                    class="lg:overflow-x-visible xl:overflow-x-visible text-center font-semibold w-full flex justify-start lg:justify-center xl:justify-center relative font-primary-font-sans overflow-x-scroll whitespace-nowrap">
+                    class="lg:overflow-x-visible xl:overflow-x-visible text-center font-semibold w-full flex justify-start lg:justify-center xl:justify-center relative font-primary-font-sans overflow-x-scroll whitespace-nowrap z-0">
+                    <li class="pl-1.5 md:pl-6 lg:hidden xl:hidden"></li>
                     <li class="inline-block text-sm flex">
                         <a href="#" title="Shop All" target="_self" class="MenuItem hover:text-indigo-700 p-2.5">Shop
                             All</a>
@@ -653,7 +657,7 @@
                         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                         x-show="isSideBarOpenFunc()"></div>
                     <!-- Content -->
-                    <section class="absolute inset-y-0 left-0 max-w-full flex" aria-labelledby="slide-over-heading">
+                    <section class="absolute inset-y-0 left-0 max-w-4/5 flex" aria-labelledby="slide-over-heading">
                         <div class="relative w-screen max-w-sm">
                             <!-- Sidebar -->
                             <div class="h-full flex flex-col bg-white shadow-xl overflow-y-visible"
@@ -675,34 +679,48 @@
                                     </button>
                                 </div>
                                 <!-- Content -->
-                                <div class="flex flex-col px-8 py-4 justify-between max-h-full overflow-y-scroll">
+                                <div class="flex flex-col px-8 py-4 justify-between h-full overflow-y-scroll">
                                     <div class="self-start w-full">
                                         <ul class="font-semibold font-primary-font-sans text-left">
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
                                                 Skincare</li>
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Makeup
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
+                                                Makeup
                                             </li>
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Body
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
+                                                Body
                                             </li>
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
                                                 Fragrance</li>
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Shop
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
+                                                Shop
                                                 our Sets</li>
                                         </ul>
                                     </div>
                                     <div class="self-end w-full">
                                         <ul class="font-semibold font-primary-font-sans text-left">
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Looks
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
+                                                Looks
                                                 IRL</li>
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">Into
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
+                                                Into
                                                 The Gloss</li>
-                                            <li class="py-2 block font-base cursor-pointer hover:text-indigo-700">About
+                                            <li
+                                                class="py-2 block font-base cursor-pointer hover:text-indigo-700 font-medium">
+                                                About
                                                 Glossier</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- SidebarFooter -->
-                                <div class="w-full absolute bottom-0 left-0 p-8 border-t bg-gray-100">
+                                <div class="w-full sticky bottom-0 left-0 p-8 border-t bg-gray-100">
                                     <div class="w-full relative group" height="fit-content">
                                         <select name="locale" id="locale"
                                             class="font-primary-font-sans text-base cursor-pointer w-full border rounded-sm pt-5 px-4 pb-2 appearance-none">
@@ -712,7 +730,7 @@
                                             <option value="en-GB">United Kingdom</option>
                                         </select>
                                         <label for="locale" aria-hidden="true"
-                                            class="flex font-base justify-between align-top w-full absolute top-0 left-0 px-4 pt-2 text-sm transition ease duration-200 -z-10">
+                                            class="flex font-base justify-between align-top w-full absolute top-0 left-0 px-4 pt-2 text-sm transition ease duration-200 z-10">
                                             <span
                                                 class="transform text-sm scale-75 relative block float-left transition duration-200 ease origin-top-left group-focus:text-indigo-700">Shipping
                                                 to:</span>
@@ -746,7 +764,7 @@
                         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                         x-show="isAccountOpen"></div>
                     <!-- Content -->
-                    <section class="absolute inset-y-0 right-0 max-w-full flex" aria-labelledby="slide-over-heading">
+                    <section class="absolute inset-y-0 right-0 max-w-4/5 flex" aria-labelledby="slide-over-heading">
                         <div class="relative w-screen max-w-sm">
                             <!-- Sidebar -->
                             <div class="h-full flex flex-col bg-white shadow-xl overflow-y-visible"
@@ -974,9 +992,9 @@
                                             </path>
                                         </svg>
                                     </button>
-                                    <h2 class="text-black font-semibold text-sm ml-4">Your Bag</h2>
+                                    <h2 class="text-black font-bold text-sm ml-4">Your Bag</h2>
                                 </div>
-                                <span class="text-black font-base text-sm">
+                                <span class="text-black font-normal text-sm">
                                     <span id="amountItems">0 </span>
                                     <span>items</span>
                                 </span>
@@ -1008,7 +1026,7 @@
                                 style="height: calc(100% - 3rem)">
                                 <div class="CartContainer w-full pt-4 px-4">
                                     <div class="ProgressBar w-full flex flex-col flex-grow-0 flex-shrink-0">
-                                        <p class="text-sm text-left mb-2.5">
+                                        <p class="text-sm text-left mb-2.5 font-normal">
                                             $30.00 away from free standard shipping
                                         </p>
                                         <div class="w-full border h-1.5 rounded-full border-red-200"
@@ -1019,16 +1037,18 @@
                                         </div>
                                     </div>
                                     <div class="mt-4">
+                                        <!-- List Item -->
                                         <div class="ItemsInCartList flex flex-wrap justify-between">
+                                            <!-- Items -->
                                             <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white"
                                                 style="width:48%">
                                                 <div
                                                     class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
                                                     <div class="">
-                                                        <p class="font-semibold text-md mb-1">
+                                                        <p class="font-bold text-sm mb-1">
                                                             1x Lip Gross
                                                         </p>
-                                                        <span>$11</span>
+                                                        <span class="text-sm font-normal">$11</span>
                                                     </div>
                                                     <div class="flex-grow w-3/4 h-auto mx-auto">
                                                         <div class="relative overflow-hidden bg-no-repeat">
@@ -1040,61 +1060,12 @@
                                                 </div>
                                                 <div class="w-full flex flex-nowrap items-center">
                                                     <button
-                                                        class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
+                                                        class="w-1/2 h-8 text-xs border-t border-r bg-white ProductCartButton">Edit</button>
                                                     <button
-                                                        class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
+                                                        class="w-1/2 h-8 text-xs border-t bg-white ProductCartButton">Remove</button>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white"
-                                                style="width:48%">
-                                                <div
-                                                    class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
-                                                    <div class="">
-                                                        <p class="font-semibold text-md mb-1">
-                                                            1x Lip Gross
-                                                        </p>
-                                                        <span>$11</span>
-                                                    </div>
-                                                    <div class="flex-grow w-3/4 h-auto mx-auto">
-                                                        <div class="relative overflow-hidden bg-no-repeat">
-                                                            <img class="object-cover"
-                                                                src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057"
-                                                                alt="Flip Gross">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="w-full flex flex-nowrap items-center">
-                                                    <button
-                                                        class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
-                                                    <button
-                                                        class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col items-start justify-between h-auto min-h-15 mb-4 border rounded-sm bg-white"
-                                                style="width:48%">
-                                                <div
-                                                    class="flex flex-col items-start flex-grow w-full px-2.5 py-2 text-sm">
-                                                    <div class="">
-                                                        <p class="font-semibold text-md mb-1">
-                                                            1x Lip Gross
-                                                        </p>
-                                                        <span>$11</span>
-                                                    </div>
-                                                    <div class="flex-grow w-3/4 h-auto mx-auto">
-                                                        <div class="relative overflow-hidden bg-no-repeat">
-                                                            <img class="object-cover"
-                                                                src="https://static-assets.glossier.com/production/spree/images/attachments/000/004/033/normal_ratio/lipgloss-red_silo.png?1562097057"
-                                                                alt="Flip Gross">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="w-full flex flex-nowrap items-center">
-                                                    <button
-                                                        class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Edit</button>
-                                                    <button
-                                                        class="w-1/2 h-8 text-sm border-t bg-white ProductCartButton">Remove</button>
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <!-- Divider -->
                                         <div class="border-b my-4 w-full"></div>
@@ -1106,74 +1077,29 @@
                                             <div class="GradientOverlay h-3/4 w-auto relative -mx-4 px-4 ">
                                                 <div
                                                     class="ScrollList -mx-4 px-4 box-border flex flex-row flex-nowrap overflow-x-auto overflow-y-hidden justify-start">
-                                                    <!-- Items -->
-                                                    <div class="flex flex-col justify-center mr-4 items-center w-full">
-                                                        <div class="h-auto mb-2 box-border w-24">
-                                                            <div class="rounded-full overflow-hidden">
-                                                                <img class="object-cover rounded-full h-full w-full"
-                                                                    src="http://images.ctfassets.net/p3w8f4svwgcg/4wKIGCGDWocYQqhq3HUlg/9467110295cb60b5223401aa0ad84d2c/Sample_OilWash.jpg"
-                                                                    alt="Sample">
+
+
+                                                    <template x-for="(item, index) in sampleItems" :key="index">
+
+                                                        <!-- ITEMS -->
+                                                        <div
+                                                            class="flex flex-col justify-center mr-4 items-center w-full">
+                                                            <div class="h-auto mb-2 box-border w-24">
+                                                                <div class="rounded-full overflow-hidden">
+                                                                    <img class="object-cover rounded-full h-full w-full"
+                                                                        src="http://images.ctfassets.net/p3w8f4svwgcg/4wKIGCGDWocYQqhq3HUlg/9467110295cb60b5223401aa0ad84d2c/Sample_OilWash.jpg"
+                                                                        alt="Sample">
+                                                                </div>
+                                                            </div>
+                                                            <p
+                                                                class="text-black font-bold text-center text-xs my-2 -mx-2">
+                                                                (New) Body Hero Oil Wash Sample</p>
+                                                            <div class="w-full w-full mt-auto mb-0">
+                                                                <button
+                                                                    class="w-full cursor-pointer inline-flex relative items-center justify-center rounded-sm text-sm bg-white text-black px-3 py-4 h-auto mt-2 mb-4 border hover:border-black">Add</button>
                                                             </div>
                                                         </div>
-                                                        <p
-                                                            class="text-black font-semibold text-center text-xs my-2 -mx-2">
-                                                            (New) Body Hero Oil Wash Sample</p>
-                                                        <div class="w-full w-full mt-auto mb-0">
-                                                            <button
-                                                                class="w-full cursor-pointer inline-flex relative items-center justify-center rounded-sm text-sm bg-white text-black px-3 py-4 h-auto mt-2 mb-4 border hover:border-black">Add</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Items -->
-                                                    <div class="flex flex-col justify-center mr-4 items-center w-full">
-                                                        <div class="h-auto mb-2 box-border w-24">
-                                                            <div class="rounded-full overflow-hidden">
-                                                                <img class="object-cover rounded-full h-full w-full"
-                                                                    src="http://images.ctfassets.net/p3w8f4svwgcg/4wKIGCGDWocYQqhq3HUlg/9467110295cb60b5223401aa0ad84d2c/Sample_OilWash.jpg"
-                                                                    alt="Sample">
-                                                            </div>
-                                                        </div>
-                                                        <p
-                                                            class="text-black font-semibold text-center text-xs my-2 -mx-2">
-                                                            (New) Body Hero Oil Wash Sample</p>
-                                                        <div class="w-full w-full mt-auto mb-0">
-                                                            <button
-                                                                class="w-full cursor-pointer inline-flex relative items-center justify-center rounded-sm text-sm bg-white text-black px-3 py-4 h-auto mt-2 mb-4 border hover:border-black">Add</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Items -->
-                                                    <div class="flex flex-col justify-center mr-4 items-center w-full">
-                                                        <div class="h-auto mb-2 box-border w-24">
-                                                            <div class="rounded-full overflow-hidden">
-                                                                <img class="object-cover rounded-full h-full w-full"
-                                                                    src="http://images.ctfassets.net/p3w8f4svwgcg/4wKIGCGDWocYQqhq3HUlg/9467110295cb60b5223401aa0ad84d2c/Sample_OilWash.jpg"
-                                                                    alt="Sample">
-                                                            </div>
-                                                        </div>
-                                                        <p
-                                                            class="text-black font-semibold text-center text-xs my-2 -mx-2">
-                                                            (New) Body Hero Oil Wash Sample</p>
-                                                        <div class="w-full w-full mt-auto mb-0">
-                                                            <button
-                                                                class="w-full cursor-pointer inline-flex relative items-center justify-center rounded-sm text-sm bg-white text-black px-3 py-4 h-auto mt-2 mb-4 border hover:border-black">Add</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Items -->
-                                                    <div class="flex flex-col justify-center mr-4 items-center w-full">
-                                                        <div class="h-auto mb-2 box-border w-24">
-                                                            <div class="rounded-full overflow-hidden">
-                                                                <img class="object-cover rounded-full h-full w-full"
-                                                                    src="http://images.ctfassets.net/p3w8f4svwgcg/4wKIGCGDWocYQqhq3HUlg/9467110295cb60b5223401aa0ad84d2c/Sample_OilWash.jpg"
-                                                                    alt="Sample">
-                                                            </div>
-                                                        </div>
-                                                        <p
-                                                            class="text-black font-semibold text-center text-xs my-2 -mx-2">
-                                                            (New) Body Hero Oil Wash Sample</p>
-                                                        <div class="w-full w-full mt-auto mb-0">
-                                                            <button
-                                                                class="w-full cursor-pointer inline-flex relative items-center justify-center rounded-sm text-sm bg-white text-black px-3 py-4 h-auto mt-2 mb-4 border hover:border-black">Add</button>
-                                                        </div>
-                                                    </div>
+                                                    </template>
                                                 </div>
                                             </div>
                                         </div>
@@ -1183,7 +1109,7 @@
                                         <div class="w-full">
                                             <!-- Apply Promo Code -->
                                             <button
-                                                class="bg-transparent underline text-sm text-black hover:text-blue-500 outline-none focus:outline-none text-left"
+                                                class="bg-transparent underline text-sm text-black hover:text-hover-purple outline-none focus:outline-none text-left"
                                                 x-on:click="promoFormOpen()" x-show="!isPromoFormOpen">
                                                 + Apply a promo code
                                             </button>
@@ -1210,13 +1136,13 @@
                                         <!-- Subtotal -->
                                         <div class="w-full flex flex-col">
                                             <div class="flex justify-between">
-                                                <p class="text-black font-semibold text-sm leading-6">Subtotal</p>
-                                                <p class="text-black font-semibold text-sm">$11.00</p>
+                                                <p class="text-black font-bold text-sm leading-6">Subtotal</p>
+                                                <p class="text-black font-bold text-sm">$11.00</p>
                                             </div>
                                             <div class="flex justify-between">
-                                                <p class="text-black font-semibold text-sm leading-6">
+                                                <p class="text-black font-bold text-sm leading-6">
                                                     Shipping
-                                                    <span class="font-medium">
+                                                    <span class="font-normal">
                                                         (free standard shipping over £30)
                                                     </span>
                                                 </p>
@@ -1232,9 +1158,9 @@
                             </div>
                             <div class="p-4 left-0 right-0 bottom-0 bg-white border-t">
                                 <div class="flex justify-between">
-                                    <p class="text-black font-semibold text-lg">Estimated Total</p>
+                                    <p class="text-black font-bold text-lg">Estimated Total</p>
                                     <div class="">
-                                        <div class="text-black text-lg font-semibold">$11.00</div>
+                                        <div class="text-black text-lg font-bold">$11.00</div>
                                     </div>
                                 </div>
                                 <div class="w-full mt-2 flex flex-wrap">
@@ -1259,6 +1185,7 @@
         </div>
         <!-- END SIDE CART -->
 
+        <!-- PASTE ALL CONTENT FROM PAGES HERE -->
         <!-- PASTE ALL CONTENT FROM PAGES HERE -->
         <main id="main">
             <!-- HERO -->
@@ -1337,415 +1264,76 @@
                                 <!-- ListItem -->
                                 <div class="flex flex-nowrap justify-start overflow-x-auto overflow-y-hidden">
                                     <div class="ml-4 md:ml-8 lg:ml-12 xl:ml-14"></div>
+                                    <template x-for="(item, index) in sampleItems" :key="index">
+                                        <!-- Item -->
+                                        <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
+                                            <div class="flex relative rounded-3px flex-grow-1">
+                                                <div class="w-full">
+                                                    <div class="">
+                                                        <!-- Image -->
+                                                        <div class="relative group">
+                                                            <!-- Tags -->
+                                                            <span
+                                                                class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
+                                                                $8</span>
+                                                            <a href="#">
+                                                                <div class="ImageGif w-full ">
+                                                                    <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
+                                                                        alt="Products" class="w-full h-full">
+                                                                    <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
+                                                                        alt="products gif" class="w-full h-full">
+                                                                </div>
+                                                            </a>
 
-                                    <!-- Item -->
-                                    <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
-                                        <div class="flex relative rounded-3px flex-grow-1">
-                                            <div class="w-full">
-                                                <div class="">
-                                                    <!-- Image -->
-                                                    <div class="relative group">
-                                                        <!-- Tags -->
-                                                        <span
-                                                            class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
-                                                            $8</span>
-                                                        <a href="#">
-                                                            <div class="ImageGif w-full ">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
-                                                                    alt="Products" class="w-full h-full">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
-                                                                    alt="products gif" class="w-full h-full">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="QuickView w-full h-full relative">
-                                                            <div class="absolute h-auto left-0 bottom-0 w-full">
-                                                                <div class="relative w-full h-full group">
-                                                                    <a href="#"
-                                                                        class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
-                                                                        Quick View</a>
-                                                                    <div
-                                                                        class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
+                                                            <div class="QuickView w-full h-full relative">
+                                                                <div class="absolute h-auto left-0 bottom-0 w-full">
+                                                                    <div class="relative w-full h-full group">
+                                                                        <a href="#"
+                                                                            class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
+                                                                            Quick View</a>
+                                                                        <div
+                                                                            class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- Detail -->
-                                                <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
-                                                    style="">
-                                                    <div class="">
-                                                        <a href="#"
-                                                            class="group hover:text-hover-purple hover:underline">
-                                                            <p class="lg:text-base xl:text-base text-xs font-bold">
-                                                                Priming Moisturizer Rich
-                                                            </p>
-                                                            <p
-                                                                class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
-                                                                luxurious face cream
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="flex items-center mt-auto">
-                                                        <button
-                                                            class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
-                                                            <div
-                                                                class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
-                                                                <span
-                                                                    class="font-bold text-xs lg:text-sm xl:text-sm">Add
-                                                                    to bag</span>
-                                                                <div class="flex">
+                                                    <!-- Detail -->
+                                                    <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
+                                                        style="">
+                                                        <div class="">
+                                                            <a href="#"
+                                                                class="group hover:text-hover-purple hover:underline">
+                                                                <p class="lg:text-base xl:text-base text-xs font-bold">
+                                                                    Priming Moisturizer Rich
+                                                                </p>
+                                                                <p
+                                                                    class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
+                                                                    luxurious face cream
+                                                                </p>
+                                                            </a>
+                                                        </div>
+                                                        <div class="flex items-center mt-auto">
+                                                            <button
+                                                                class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
+                                                                <div
+                                                                    class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
                                                                     <span
-                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Item -->
-                                    <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
-                                        <div class="flex relative rounded-3px flex-grow-1">
-                                            <div class="w-full">
-                                                <div class="">
-                                                    <!-- Image -->
-                                                    <div class="relative group">
-                                                        <!-- Tags -->
-                                                        <span
-                                                            class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
-                                                            $8</span>
-                                                        <a href="#">
-                                                            <div class="ImageGif w-full ">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
-                                                                    alt="Products" class="w-full h-full">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
-                                                                    alt="products gif" class="w-full h-full">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="QuickView w-full h-full relative">
-                                                            <div class="absolute h-auto left-0 bottom-0 w-full">
-                                                                <div class="relative w-full h-full group">
-                                                                    <a href="#"
-                                                                        class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
-                                                                        Quick View</a>
-                                                                    <div
-                                                                        class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
+                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">Add
+                                                                        to bag</span>
+                                                                    <div class="flex">
+                                                                        <span
+                                                                            class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- Detail -->
-                                                <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
-                                                    style="">
-                                                    <div class="">
-                                                        <a href="#"
-                                                            class="group hover:text-hover-purple hover:underline">
-                                                            <p class="lg:text-base xl:text-base text-xs font-bold">
-                                                                Priming Moisturizer Rich
-                                                            </p>
-                                                            <p
-                                                                class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
-                                                                luxurious face cream
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="flex items-center mt-auto">
-                                                        <button
-                                                            class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
-                                                            <div
-                                                                class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
-                                                                <span
-                                                                    class="font-bold text-xs lg:text-sm xl:text-sm">Add
-                                                                    to bag</span>
-                                                                <div class="flex">
-                                                                    <span
-                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Item -->
-                                    <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
-                                        <div class="flex relative rounded-3px flex-grow-1">
-                                            <div class="w-full">
-                                                <div class="">
-                                                    <!-- Image -->
-                                                    <div class="relative group">
-                                                        <!-- Tags -->
-                                                        <span
-                                                            class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
-                                                            $8</span>
-                                                        <a href="#">
-                                                            <div class="ImageGif w-full ">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
-                                                                    alt="Products" class="w-full h-full">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
-                                                                    alt="products gif" class="w-full h-full">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="QuickView w-full h-full relative">
-                                                            <div class="absolute h-auto left-0 bottom-0 w-full">
-                                                                <div class="relative w-full h-full group">
-                                                                    <a href="#"
-                                                                        class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
-                                                                        Quick View</a>
-                                                                    <div
-                                                                        class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Detail -->
-                                                <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
-                                                    style="">
-                                                    <div class="">
-                                                        <a href="#"
-                                                            class="group hover:text-hover-purple hover:underline">
-                                                            <p class="lg:text-base xl:text-base text-xs font-bold">
-                                                                Priming Moisturizer Rich
-                                                            </p>
-                                                            <p
-                                                                class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
-                                                                luxurious face cream
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="flex items-center mt-auto">
-                                                        <button
-                                                            class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
-                                                            <div
-                                                                class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
-                                                                <span
-                                                                    class="font-bold text-xs lg:text-sm xl:text-sm">Add
-                                                                    to bag</span>
-                                                                <div class="flex">
-                                                                    <span
-                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Item -->
-                                    <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
-                                        <div class="flex relative rounded-3px flex-grow-1">
-                                            <div class="w-full">
-                                                <div class="">
-                                                    <!-- Image -->
-                                                    <div class="relative group">
-                                                        <!-- Tags -->
-                                                        <span
-                                                            class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
-                                                            $8</span>
-                                                        <a href="#">
-                                                            <div class="ImageGif w-full ">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
-                                                                    alt="Products" class="w-full h-full">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
-                                                                    alt="products gif" class="w-full h-full">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="QuickView w-full h-full relative">
-                                                            <div class="absolute h-auto left-0 bottom-0 w-full">
-                                                                <div class="relative w-full h-full group">
-                                                                    <a href="#"
-                                                                        class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
-                                                                        Quick View</a>
-                                                                    <div
-                                                                        class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Detail -->
-                                                <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
-                                                    style="">
-                                                    <div class="">
-                                                        <a href="#"
-                                                            class="group hover:text-hover-purple hover:underline">
-                                                            <p class="lg:text-base xl:text-base text-xs font-bold">
-                                                                Priming Moisturizer Rich
-                                                            </p>
-                                                            <p
-                                                                class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
-                                                                luxurious face cream
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="flex items-center mt-auto">
-                                                        <button
-                                                            class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
-                                                            <div
-                                                                class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
-                                                                <span
-                                                                    class="font-bold text-xs lg:text-sm xl:text-sm">Add
-                                                                    to bag</span>
-                                                                <div class="flex">
-                                                                    <span
-                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Item -->
-                                    <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
-                                        <div class="flex relative rounded-3px flex-grow-1">
-                                            <div class="w-full">
-                                                <div class="">
-                                                    <!-- Image -->
-                                                    <div class="relative group">
-                                                        <!-- Tags -->
-                                                        <span
-                                                            class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
-                                                            $8</span>
-                                                        <a href="#">
-                                                            <div class="ImageGif w-full ">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
-                                                                    alt="Products" class="w-full h-full">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
-                                                                    alt="products gif" class="w-full h-full">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="QuickView w-full h-full relative">
-                                                            <div class="absolute h-auto left-0 bottom-0 w-full">
-                                                                <div class="relative w-full h-full group">
-                                                                    <a href="#"
-                                                                        class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
-                                                                        Quick View</a>
-                                                                    <div
-                                                                        class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Detail -->
-                                                <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
-                                                    style="">
-                                                    <div class="">
-                                                        <a href="#"
-                                                            class="group hover:text-hover-purple hover:underline">
-                                                            <p class="lg:text-base xl:text-base text-xs font-bold">
-                                                                Priming Moisturizer Rich
-                                                            </p>
-                                                            <p
-                                                                class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
-                                                                luxurious face cream
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="flex items-center mt-auto">
-                                                        <button
-                                                            class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
-                                                            <div
-                                                                class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
-                                                                <span
-                                                                    class="font-bold text-xs lg:text-sm xl:text-sm">Add
-                                                                    to bag</span>
-                                                                <div class="flex">
-                                                                    <span
-                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Item -->
-                                    <div class="ProductListItem scrollListBasis ml-0 mr-4 mb-2">
-                                        <div class="flex relative rounded-3px flex-grow-1">
-                                            <div class="w-full">
-                                                <div class="">
-                                                    <!-- Image -->
-                                                    <div class="relative group">
-                                                        <!-- Tags -->
-                                                        <span
-                                                            class="absolute top-2 right-2 rounded-3px text-xs font-bold bg-white px-1 py-0.5 opacity-80 h-19">Save
-                                                            $8</span>
-                                                        <a href="#">
-                                                            <div class="ImageGif w-full ">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/375/portrait_normal/pmr_main.jpg?1551586878=&w=600&q=80&fm=webp"
-                                                                    alt="Products" class="w-full h-full">
-                                                                <img src="https://static-assets.glossier.com/production/spree/images/attachments/000/003/376/portrait_normal/PMRcompressed.gif?1557167462=&w=600&q=80&fm=webp"
-                                                                    alt="products gif" class="w-full h-full">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="QuickView w-full h-full relative">
-                                                            <div class="absolute h-auto left-0 bottom-0 w-full">
-                                                                <div class="relative w-full h-full group">
-                                                                    <a href="#"
-                                                                        class="font-semibold block text-gray-800 text-xs md:text-sm xl:text-sm lg:text-sm hover:underline hover:text-hover-purple relative w-full h-full py-2 text-center z-20">
-                                                                        Quick View</a>
-                                                                    <div
-                                                                        class="group-hover:opacity-100 absolute h-full w-full top-0 left-0 opacity-50 bg-gray-100">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Detail -->
-                                                <div class="flex flex-col p-2 pt-2.5 bg-gray-50 min-h-120px md:min-h-135px lg:min-h-143px xl:min-h-143px"
-                                                    style="">
-                                                    <div class="">
-                                                        <a href="#"
-                                                            class="group hover:text-hover-purple hover:underline">
-                                                            <p class="lg:text-base xl:text-base text-xs font-bold">
-                                                                Priming Moisturizer Rich
-                                                            </p>
-                                                            <p
-                                                                class="group-hover:text-hover-purple font-normal lg:text-sm xl:text-sm text-xs text-gray-sub">
-                                                                luxurious face cream
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="flex items-center mt-auto">
-                                                        <button
-                                                            class="w-full text-sm py-1 px-2 lg:px-4 lg:py-3 xl:px-4 xl:py-3 border hover:border-black rounded-3px bg-white">
-                                                            <div
-                                                                class="flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-between xl:justify-between">
-                                                                <span
-                                                                    class="font-bold text-xs lg:text-sm xl:text-sm">Add
-                                                                    to bag</span>
-                                                                <div class="flex">
-                                                                    <span
-                                                                        class="font-bold text-xs lg:text-sm xl:text-sm">£29</span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -2209,7 +1797,8 @@
                             </ul>
                         </div>
 
-                        <div class="w-full md:w-3/5 xl:w-3/5 lg:w-3/5 lg:pr-4 xl:pr-4 px-2 h-auto mb-4 lg:mb-8 xl:mb-8">
+                        <div
+                            class="w-full md:w-3/5 xl:w-3/5 lg:w-3/5 ml-0 lg:ml-2 xl:ml-2 lg:pr-4 xl:pr-4 px-2 h-auto mb-4 lg:mb-8 xl:mb-8">
                             <div class="w-full h-full">
                                 <div class="bg-cover bg-center lg:bg-top-left xl:bg-top-left w-full md:h-full lg:h-full xl:h-full bg-gray-50 bg-no-repeat h-64"
                                     style="background-image: url('https://images.ctfassets.net/p3w8f4svwgcg/1RBZUHK0czYoegQe0VhdYS/85c943302f7385b5a34d4239cb4b2b6b/Homepage_Skincare_Desktop.jpg?w=600&q=80');">
@@ -2691,11 +2280,11 @@
                                         x-ref="slider"
                                         x-on:scroll.debounce="active = Math.round($event.target.scrollLeft / ($event.target.scrollWidth / items.length))">
                                         <!-- <template x-for="(item,index) in items" :key="index">
-                                            <div
-                                                class="w-full flex-shrink-0 h-32 bg-black text-white flex items-center justify-center">
-                                                <span x-text="item"></span>
-                                            </div>
-                                        </template> -->
+                                    <div
+                                        class="w-full flex-shrink-0 h-32 bg-black text-white flex items-center justify-center">
+                                        <span x-text="item"></span>
+                                    </div>
+                                </template> -->
                                         <div class="w-full flex-shrink-0 flex items-center justify-center">
                                             <!-- item -->
                                             <div class="w-full">
@@ -2856,7 +2445,7 @@
                     <!-- Shipping To -->
                     <div class="w-full lg:w-1/3 xl:w-1/3 p-2 pb-4 xl:p-0 lg:p-0 relative group" height="fit-content">
                         <select name="locale" id="locale"
-                            class="bg-black font-primary-font-sans text-base cursor-pointer w-full rounded-sm pt-5 px-4 pb-2 appearance-none">
+                            class="bg-black font-primary-font-sans text-base cursor-pointer w-full rounded-sm pt-5 px-2 lg:px-4 xl:px-4 pb-2 appearance-none">
                             <option value="en-US">United States</option>
                             <option value="en-CA">Canada (EN)</option>
                             <option value="fr-CA">Canada (FR)</option>
@@ -2992,7 +2581,7 @@
                         <div class="lg:mx-4 xl:mx-4">
                             <div class="flex flex-col text-sm">
                                 <p class="font-normal">&#169; 2021 Glossier. All right reserved.</p>
-                                <ul class="flex whitespace-nowrap">
+                                <ul class="flex whitespace-nowrap flex-wrap justify-center">
                                     <li><a href="#"
                                             class="text-white text-xs font-normal leading-4 underline hover:text-gray-500 mr-4">Privacy
                                             Policy</a></li>

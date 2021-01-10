@@ -38,6 +38,12 @@ module.exports = {
       borderRadius: {
         "3px": "3px",
       },
+      zIndex: {
+        "-10": "-10",
+      },
+      maxWidth: {
+        "4/5": "80%",
+      },
     },
     container: {
       center: true,

@@ -7,6 +7,8 @@ function transitionAlpine() {
     isCartOpen: false,
     isPromoFormOpen: false,
     showBottomMenu: true,
+    lastScrollPos: window.pageYOffset,
+    sampleItems: [1, 2, 3, 4, 5, 6],
     // SIDEBAR
     sidebarOpen() {
       this.isSidebarOpen = true;
@@ -40,13 +42,20 @@ function transitionAlpine() {
       this.isCartOpen = false;
     },
     // PROMO FORM
-    promoFormOpen(){
+    promoFormOpen() {
       this.isPromoFormOpen = true;
     },
     // BOTTOM MENU
     isScrollAtTop() {
-      let isScrollAtTop = window.pageYOffset > 40 ? true : false;
-      this.showBottomMenu = !isScrollAtTop;
+      let currentScrollPos = window.pageYOffset;
+
+      if (this.lastScrollPos > currentScrollPos) {
+        this.showBottomMenu = true;
+      } else {
+        this.showBottomMenu = false;
+      }
+
+      this.lastScrollPos = currentScrollPos;
     },
   };
 }
