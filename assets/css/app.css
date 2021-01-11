@@ -592,6 +592,12 @@ video {
   }
 }
 
+/* Global Transition */
+
+.GlobalTransition{
+  transition: all 0.15s linear 0s;
+}
+
 /* Menu */
 
 .SubMenu{
