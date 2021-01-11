@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "primary-serif": ["Playfair Display"],
+        "primary-sans": ["Nunito"],
       },
       minHeight: {
         "40px": "40px",
@@ -45,15 +46,7 @@ module.exports = {
         "4/5": "80%",
       },
     },
-    container: {
-      center: true,
-      padding: {
-        sm: "16px",
-        md: "36px",
-        lg: "48px",
-        xl: "56px",
-      },
-    },
+    container: false,
     // screens: {
     //   sm: "640px",
     //   md: "768px",
