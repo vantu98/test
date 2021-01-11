@@ -634,7 +634,7 @@ video {
   display: block;
 }
 
-.ProductListItem:hover .QuickView{
+.ImageGroup:hover .QuickView{
   display: block;
 }
 
