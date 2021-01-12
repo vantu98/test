@@ -584,6 +584,12 @@ video {
   }
 }
 
+/* Global Transition */
+
+.GlobalTransition{
+  transition: all 0.15s linear;
+}
+
 /* Container */
 
 /* default */
@@ -679,7 +685,7 @@ video {
   display: block;
 }
 
-.ProductListItem:hover .QuickView{
+.ImageGroup:hover .QuickView{
   display: block;
 }
 
