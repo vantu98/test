@@ -45,15 +45,11 @@ module.exports = {
       maxWidth: {
         "4/5": "80%",
       },
+      screens: {
+        "3xl": "1441px",
+      },
     },
     container: false,
-    // screens: {
-    //   sm: "640px",
-    //   md: "768px",
-    //   lg: "1024px",
-    //   xl: "1152px",
-    //   "2xl": "1536px",
-    // },
   },
   variants: {
     extend: {},
